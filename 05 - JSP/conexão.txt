@@ -1,0 +1,4 @@
+executar o servidor -> apache tomcat -> lib (.jar) -> 
+mysql connector (drivers).
+
+no eclipse: window -> servers -> create new server.
