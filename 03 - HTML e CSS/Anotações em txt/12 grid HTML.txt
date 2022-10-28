@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <!-- Alinhar elementos (texto, imagem, vídeo...etc) -->
+
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <!-- para trabalhar de maneira vertical com o COL é sempre necessário utilizar o ROW, -->
+    <!-- nesse caso o 3 funciona como colunas, indo de 3 em 3 colunas, IMPORTANTE SEMPRE FECHAR 12 COLUNAS -->
+    <!-- o col xl e col md é o tamanho da tela, podedo ver na documentação de grid: -->
+    <!-- https://getbootstrap.com/docs/5.2/layout/grid/ -->
+    <!-- essa ferramenta é nativa do bootstrap -->
+    <div class="row">
+        <div class="col-xl-3 col-md-4 col-6">A</div>
+        <div class="col-xl-3 col-md-4 col-6">B</div>
+        <div class="col-xl-3 col-md-4 col-6">C</div>
+        <div class="col-xl-3 col-md-4 col-6">D</div>
+    </div>
+
+</body>
+</html>

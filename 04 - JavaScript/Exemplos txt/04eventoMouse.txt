@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento de Mouse</title>
+    <!-- Não necessáriamente precisa ser um button, pode ser um h1, p, table... etc -->
+
+    <script>
+        // O evento só funciona dentrode uma função
+        function mensagem(){
+            window.alert("Você clicou em um botão");
+        }
+
+        function enviar(){
+            // obter o elemento input
+            let nome = document.getElementById("nome");
+
+            // condicional
+            if(nome.value == ""){
+                alert("Informe um nome, por favor");
+
+            } else if (nome.value.length < 3){
+                alert("O nome precisa ter pelo menos três caracteres");
+                
+            }else{
+                alert("Nome informado: " + nome.value);
+            }
+
+            // Limpar elemento input
+            nome.value = "";
+            // Cursor dentro do elemento input
+            nome.focus();
+        }
+        
+    </script>
+</head>
+<body>
+
+    <button onclick="mensagem()">Clique Aqui!</button>
+
+    <hr>
+
+    <input type="text" id="nome" placeholder="Informe um nome">
+    <button onclick="enviar()">Enviar</button>
+
+</body>
+</html>

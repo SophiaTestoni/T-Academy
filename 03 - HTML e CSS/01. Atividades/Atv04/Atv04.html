@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atv04</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="Atv04.css">
+<script src="Atv04.js"></script>
+</head>
+<body>
+
+  <section class="payment-form dark">
+  <div class="container-fluid">
+    <h1>Faça seu pedido</h1>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="pao na chapa" onclick="teste(this.checked, 1)">
+        <label class="form-check-label" for="pao na chapa">
+          Pão na chapa - R$ 6.00
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="bauru" onclick="teste(this.checked, 2)">
+        <label class="form-check-label" for="bauru">
+          Bauru com tomate - R$ 10.00
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="sanduiche" onclick="teste(this.checked, 3)">
+        <label class="form-check-label" for="sanduiche">
+          Sanduiche natural - R$ 8.00
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="pastel de carne" onclick="teste(this.checked, 4)">
+        <label class="form-check-label" for="pastel de carne">
+          Pastel de carne - R$ 4.50
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="pastel de queijo" onclick="teste(this.checked, 5)">
+        <label class="form-check-label" for="pastel de queijo">
+          Pastel de queijo - R$ 4.50
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="café capp" onclick="teste(this.checked, 6)">
+        <label class="form-check-label" for="café capp">
+          Café cappuccino - R$ 12.00
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="café ping" onclick="teste(this.checked, 7)">
+         <label class="form-check-label" for="café ping">
+          Café pingado - R$ 4.00
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="suco" onclick="teste(this.checked, 8)">
+         <label class="form-check-label" for="suco">
+          Suco natural de laranja - R$ 5.50
+        </label>
+      </div>
+      <div class="form-check" >
+        <input class="form-check-input" type="checkbox" id="refri lata" onclick="teste(this.checked, 9)">
+         <label class="form-check-label" for="refri lata">
+          Refrigerante em lata - R$ 3.50
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="refri litro" onclick="teste(this.checked, 10)">
+         <label class="form-check-label" for="refri litro">
+          Refrigerante em litro - R$ 5.00
+        </label>
+      </div>
+      <hr>
+      <div>
+        <h1 id="total">Total do seu pedido</h1>
+
+      </div>
+      <div class="card">
+        <button type="text" class="btn btn-primary">Enviar pedido</button>
+      </div>
+    </div>
+  </div>
+  </section>
+    
+</body>
+</html>

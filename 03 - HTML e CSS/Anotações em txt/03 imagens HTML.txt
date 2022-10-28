@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem</title>
+</head>
+<body>
+    <!-- CTRL espaço e aparece os docs que temos no mesmo lugar -->
+    <!-- https://www.iconfinder.com/ -->
+    <!-- https://webdesigner.withgoogle.com/ -->
+    <!-- https://www.adobe.com/products/animate.html -->
+
+    <!-- img para buscar imagens e nomea-las no alt - não é obrigatório utilizar mas é uma boa prática -->
+    <img src="Legend-Zelda-Breath-Wild-Link-Player-Custom-Name.jpg" width="50%" alt="Foto de teste">
+    <!-- Não é uma boa prática usar o width pois isso é um papel do CSS -->
+    <img src="8595931_1_link_zelda_game_8bit_icon.svg" alt="Master Sword">
+
+</body>
+</html>

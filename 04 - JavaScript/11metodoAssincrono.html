@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método assíncrono</title>
+    <!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+
+    <div id="inicio"></div>
+    <div id="conteudo"></div>
+    <div id="termino"></div>
+
+    <script>
+        // Função principal
+        // Quando uma requisição leva um tempo, dessa forma fica assincrono, leva um tempo para ler um ao outro
+        async function acao(){
+
+            // Início
+            let di = new Date();
+            document.getElementById("inicio").innerText = di;
+
+            // Conteúdo
+            for(let i = 1; i<152; i++){
+                let retorno = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
+
+                let retorno_convertido = await retorno.json();
+                
+                document.getElementById("conteudo").innerHTML += `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${i}.gif">`
+                document.getElementById("conteudo").innerHTML += retorno_convertido.name + "<hr>"
+            }
+            // Término
+        let dt = new Date();
+        document.getElementById("termino").innerText = dt;
+
+    }
+        //  Executar a ação
+        acao();
+
+    </script>
+    
+</body>
+</html>

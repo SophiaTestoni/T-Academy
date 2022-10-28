@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+
+    <!-- CSS -->
+    <style>
+        h1{
+            color:rgb(0, 0, 0);
+            background-color: rgb(187, 28, 28);
+            width: 250px;
+            /* border-style: dotted;
+            border-color: black;
+            border-width: 5px; */
+            border: 5px dotted rgb(255, 255, 255);
+            /* sempre nessa ordem, assim o que antes fizemos em 3 linhas, fizemos em somente 1. */
+            border-radius: 10px;
+            /* o radius é arrendondamento da borda */
+            text-align: center;
+            margin-top: 50px;
+            margin-left: 30px;
+            padding-top: 15px;
+            padding-bottom: 5px;
+            /* padding é o espaçamento dentro da borda */
+
+        }
+
+        h1:hover{
+
+            background-color: rgb(255, 128, 43);
+            color:rgb(58, 11, 83);
+            border-color:rgb(50, 0, 0);
+        /* sobrepoem as informações quando passa o mouse por cima */
+        }
+
+        #cor_azul{
+            color: rgb(96, 160, 255);
+        /* dessa forma podemos setar a cor em um único texto, deve ser chamado através do ID */
+        /* O ID é unico, só pode haver uma */
+        }
+
+        .cor_verde{
+            color:rgb(96, 160, 78)
+         /* dessa forma podemos setar a cor em um único texto, deve ser chamado através do class */
+         /* A classe não precisa ser única, pode ter mais de uma característica junto dela */
+        }
+
+        .fonte{
+            font-size: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Hello World!</h1>
+
+    <p id="cor_azul">Parágrafo 1</p>
+    <p class="cor_verde fonte">Parágrafo 2</p>
+    <p>Parágrafo 3</p>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento de teclado</title>
+</head>
+<body>
+    
+    <h1 id="texto"></h1>
+
+    <hr>
+    <!-- pegando o elemento do tipo texto e passando um valor ao input, pode ser feito numa função -->
+    <!-- mas sendo pouca coisa pode ser feito dentro -->
+    <input type="text" onkeyup="documento.getElementById('texto').innerHTML = this.value">
+
+</body>
+</html>

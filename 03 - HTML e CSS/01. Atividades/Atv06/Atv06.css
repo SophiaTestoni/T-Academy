@@ -1,0 +1,40 @@
+form{
+    width: 500px;
+    margin: 30px auto;
+    text-align: center;
+    padding: 50px;
+}
+
+form input{
+    margin-bottom: 10px;
+}
+
+body{
+    background-color: #ffd4e1;
+}
+.texto{
+    color: #306b99;
+    text-shadow: 0 0 2px rgb(252, 131, 226);
+}
+
+.campo{
+    border-radius: 20px;
+    background-color: #c4d2f6;
+    border-color: rgb(252, 131, 226);
+}
+
+.btn{
+
+color: rgb(255, 255, 255);
+background-color: rgb(252, 131, 226);
+border-color: #ffd4e1;
+
+}
+
+/* esconder as flechinhas do input number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+  margin: 0;
+}
+

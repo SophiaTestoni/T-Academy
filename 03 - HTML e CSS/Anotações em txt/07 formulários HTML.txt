@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+</head>
+<body>
+    <!-- Caixa de texto, botão -->
+
+    <!-- Exemplo 01 -->
+    <form action="https://zelda.com">
+        <input type="submit" value="Clique aqui">
+    </form>
+
+    <hr>
+
+    <!-- Exemplo 02 -->
+    <form action="https://zelda.com">
+        <label >Digite algo:</label>
+    <input type="text">
+    <input type="button" value="Funciona apenas com o JS">
+    <input type="reset" value="Limpar campo">
+
+    <!-- o type é o text -->
+    <!-- label é o rótulo -->
+    </form>
+
+    <hr>
+
+    <!-- Exemplo 03 -->
+    <form action="https://zelda.com">
+
+        <input type="email" required placeholder="E-mail">
+        <input type="color">
+        <input type="date">
+        <input type="password" placeholder="Digite sua senha">
+        <input type="file">
+        <input type="submit" value="Enviar">
+
+    <!-- O required vai obrigar a preencher o dado antes de dar submit, customizar a caixa de texto somente com JS e CSS -->
+    <!-- O placeholder escreve dentro do campo do type email e some após inserção de texto -->
+    </form>
+
+    <hr>
+
+    <!-- Exemplo 04 -->
+    <form action="https://zelda.com">
+        <fieldset>
+            <legend>Turno</legend>
+            
+            <input type="checkbox" name="" id="mt">
+            <label for="mt">Matutino</label>
+
+            <input type="checkbox" name="" id="vp">
+            <label for="vp">Vespertino</label>
+
+            <input type="checkbox" name="" id="nt">
+            <label for="nt">Noturno</label>
+     <!-- O for do label faz referencia ao id, nesse exemplo a box faz check clicando em cima do turno escrito também -->
+        </fieldset>
+
+        <fieldset>
+    <!-- Incluindo informações no name eu faço com que apenas uma das opções possam ser selecionadas -->
+            <legend>Linguagem</legend>
+
+            <input type="radio" name="Linguagem" id="java">
+            <label for="Java">java</label>
+
+            <input type="radio" name="Linguagem" id="c-sharp">
+            <label for="C-sharp">c-sharp</label>
+
+            <input type="radio" name="Linguagem" id="pyton">
+            <label for="Pyton">pyton</label>
+        </fieldset>
+
+        <!-- Para escrever textos mais longos, é possível clicar e arrastar a caixa de texto criada -->
+        <textarea></textarea>
+    </form>
+
+</body>
+</html>

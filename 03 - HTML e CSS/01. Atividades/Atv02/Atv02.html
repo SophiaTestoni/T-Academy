@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atv02</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="Atv02.css">
+    <title>Pagamento</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="Atv02.js"></script>
+  </head>
+<body>
+    <section class="payment-form dark">
+        <div class="container">
+          <div class="block-heading">
+            <h2>Pagamento</h2>
+            <p>Informe de qual forma você gostaria de realizar o pagamento.</p>
+          </div>
+          <form>
+            <div class="products">
+              <h3 class="title">Valores</h3>
+              <div class="item">
+                <span class="price" id="preco">R$90.00</span>
+                <p class="item-name">Barbie</p>
+              </div>
+              <div class="item">
+                <span class="price" id="preco">R$ 120.00</span>
+                <p class="item-name">Lego</p>
+              </div>
+              <div class="total">Total<span class="price" id="precoTotal">R$ 210.00</span></div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <hr>
+      <div class="form-check" style="text-align: center;">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="avista">
+        <label class="form-check-label" for="avista">
+          Pagamento à vista
+        </label>
+      </div>
+      <div class="form-check" style="text-align: center;">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="aprazo" checked>
+        <label class="form-check-label" for="aprazo">
+          Pagamento a prazo
+        </label>
+      </div>
+      <hr>
+      <div id="retorno">
+        <p>O valor com desconto é:</p>
+      </div>
+      <div style="text-align: center">
+        <button type="text" onclick="enviar()" class="btn btn-light">Enviar pagamento</button>
+      </div>
+    
+</body>
+</html>

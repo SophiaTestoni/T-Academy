@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela</title>
+</head>
+<body>
+    <!-- o border está em desuso, utilizando apenas para demonstração -->
+    <!-- TR de colunas TD de linhas  -->
+    <!-- ALT SHIFT seta para baixo no campo selecionado para duplicar -->
+
+    <!-- Exemplo 01 -->
+    <table border="1">
+        <tr>
+            <td rowspan="2">A</td>
+            <td>B</td>
+            <td>C</td>
+        <!-- rowspan para unificar a linha -->
+        </tr>
+        <tr>
+            <td colspan="2">E</td>
+        <!-- colspan para unificar a coluna -->
+        </tr>
+    </table>
+
+    <!-- Separador -->
+    <hr>
+
+    <!-- Exemplo 02 -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th> Código</th>
+                <th> Produto</th>
+                <th> Valor</th>
+
+            </tr>
+        </thead>
+            <!-- THEAD trata-se do cabeçalho da tabela -->
+        <tbody>
+            <!-- TR>TD*3 criou uma linha com 3 colunas -->
+            <tr>
+                <td>1</td>
+                <td>Arroz</td>
+                <td>R$ 8,90</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Feijão</td>
+                <td>R$ 12,50</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Macarrão</td>
+                <td>R$ 5,30</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Foram encontrados 3 registros.</td>
+            </tr>
+            <!-- TFOOT é rodapé -->
+        </tfoot>
+    </table>
+
+</body>
+</html>

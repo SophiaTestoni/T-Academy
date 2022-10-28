@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+<!-- document object model -->
+<!-- seleciona tag html e implementa alguma ação -->
+
+<script>
+    window.onload = function(){
+
+    // Obter o elemento H1
+    // no documento está buscando um elemento de tag h1 e estou mencionando qual dos h1 será
+    // nesse caso é 0 pois é o primeiro
+    let h1 = document.getElementsByTagName("h1")[0];
+
+    // obter o elemento através da classe - por hora ainda é necessário setar a posição
+    let classe = document.getElementsByClassName("titulo")[0];
+
+    // obter o elemento por ID
+    // o id é mais especifico, posso ter 30 id com titulo mas ele vai pegar somente o primeiro e alterar
+    // não é necessário setar posição - em projetos é boa prática ter apenas um id e sem duplicatas
+    let id = document.getElementById("titulo");
+
+    // só vai ler depois de carregar o h1, por isso o script vem depois para manipular as tags
+    // por isso que utilizamos o window.onload para que a janela carregue e leia a função, no caso o script
+    // portanto, dependendo da empresa uns colocam o script ao final da html, dentro do body (antes do/body) ou
+    // no head dentro do window.onload
+    // document.write(h1.innerText);
+
+    // Alterar o texto do h1
+    // h1.innerText = "Olá mundo!";
+    // Com o innerHTML podemos utilizar outras tags do html para modificar o texto
+    // quando quiser mudar apenas texto, utilizar o innerText
+    h1.innerHTML = "Olá mundo! <br> Tudo bem?";
+    // no JS puro nao dá para "concatenar" os styles, precisa colocar uma info por vez, no ANGULAR, por ex. já é possível dar jeito nisso.
+    h1.style.color = "blue";
+
+    // alterar texto da classe titulo
+    classe.innerText = "Alterar texto...";
+
+    // alterar o texto do id titulo
+    id.innerText = "Elemento contendo um Identificador";
+
+}
+    </script>
+
+</head>
+<body>
+
+    <h1>Hello World!</h1>
+
+    <h1 class="titulo">Segundo h1</h1>
+
+    <h1 id="titulo">Terceiro h1</h1>
+
+
+    
+</body>
+</html>

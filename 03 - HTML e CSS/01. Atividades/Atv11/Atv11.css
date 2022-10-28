@@ -1,0 +1,33 @@
+form{
+    width: 500px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+form input{
+    margin-bottom: 10px;
+}
+
+.table{
+    width: 500px;
+    margin: 30px auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.696);
+    color: rgb(255, 255, 255);
+
+}
+p{
+    text-align: center;
+    width: 500px;
+    margin: 30px auto;
+}
+body{
+    background-color: rgb(242, 242, 242);
+}
+.pic{
+    width: 70px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+
+}

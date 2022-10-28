@@ -1,0 +1,34 @@
+.info{
+    text-align: center;
+    margin-top: 20px;
+    color:rgb(255, 198, 41);
+}
+.numeros{
+    margin-left: 350px;
+    margin-top: 20px;
+}
+button{
+    margin-left: 680px;
+    margin-top: 40px;
+}
+.carousel-inner{
+width: 35%;
+margin-left: 475px;
+margin-top: 40px;
+}
+.fundoNavBar{
+    background-color: rgb(131, 143, 155);
+    
+}
+body{
+background-color: rgb(230, 233, 237);
+}
+.tamanhoImagem{
+height: 200px;
+width: 200px;
+margin-left: 650px
+}
+
+.colorNav{
+color: rgb(243, 181, 12);
+}

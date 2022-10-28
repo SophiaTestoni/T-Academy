@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atv06</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="Atv06.css">    
+<script src="Atv06.js"></script>
+</head>
+
+<body>
+    <form>
+        <p><h1 class="texto" >Descubra seu signo</h1></p>
+        <p><input type="number" id="dia" placeholder="Dia de nascimento" style="text-align: center;" class="campo"
+            class="campo"></p>
+        <p><input type="number" id="mes" placeholder="Mês de nascimento" style="text-align: center;"class="campo"
+            class="campo"></p>
+        <input type="button" onclick="verificar()" value="Enviar" class="btn btn-primary">
+        <h5 class="texto" id="mensagem">Seu signo é:</h5>
+        <p id="foto"><img src="imagem/zodiac-wheel.png" width=80%></p>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEP</title>
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<!-- CSS -->
+    <style>
+        input{
+        margin-top: 15px;
+    }
+    </style>
+
+<!-- JS -->
+    <script>
+        function acao(e){
+            // obter inputs
+            let cep = document.getElementById("cep");
+            let estado = document.getElementById("estado");
+            let cidade = document.getElementById("cidade");
+            let logradouro = document.getElementById("logradouro");
+            let bairro = document.getElementById("bairro");
+            // caso queria remover o hífen
+            if(cep.value.length == 6 && e.keyCode == 8){
+            // o substring vai pegar a posição 0 e vai apagar até a quarta posição
+                cep.value = cep.value.substring(0,4);
+            }
+            // adicionar o hífen
+            if(cep.value.length == 5){
+                cep.value += "-";
+            }
+
+            // CEP completo
+            if(cep.value.length == 9){
+                // o FETCH é uma PROMISE
+                fetch(`https://viacep.com.br/ws/${cep.value}/json/`)
+                .then(retorno => retorno.json())
+                .then(retorno_convertido => {
+                    estado.value = retorno_convertido.uf;
+                    cidade.value = retorno_convertido.localidade;
+                    logradouro.value = retorno_convertido.logradouro;
+                    bairro.value = retorno_convertido.bairro;
+                })
+                // then deu certo o fetch
+                // catch deu erro o fetch
+                // finally executa uma ação independente se deu certo ou não
+                // o retorno.json faz a conversão do retorno
+                // após a conversão, fazer um then para trazer esse retorno
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <!-- o OFFSET dá uma margem para a coluna, nesse caso é uma margem de 3 colunas -->
+        <!-- o EVENT identifica a ação do mouse ou teclado, sendo possível saber quantas teclas digitadas, se foi clicado com
+        direito do mouse etc. -->
+        <div class="col-6 offset-3">
+            <input type="text" placeholder="CEP" id="cep" class="form-control" onkeyup="acao(event)">
+        </div>
+
+        <div class="col-3 offset-3">
+            <input type="text" placeholder="Estado" id="estado" class="form-control" readonly>
+        </div>
+
+        <div class="col-3">
+            <input type="text" placeholder="Cidade" id="cidade" class="form-control" readonly>
+        </div>
+
+        <div class="col-3 offset-3">
+            <input type="text" placeholder="Logradouro" id="logradouro" class="form-control" readonly>
+        </div>
+
+        <div class="col-3">
+            <input type="text" placeholder="Bairro" id="bairro" class="form-control" readonly>
+        </div>
+    </div>
+
+</div>
+    
+</body>
+</html>

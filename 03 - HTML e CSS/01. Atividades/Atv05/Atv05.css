@@ -1,0 +1,14 @@
+.fundoNavBar{
+background-color: rgb(186, 186, 186);
+}
+
+/* esconder as flechinhas do input number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+  margin: 0;
+}
+h6{
+    margin-top: 20px;
+}
+

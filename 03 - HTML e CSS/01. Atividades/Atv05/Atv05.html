@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atv05</title>
+
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="Atv05.css">
+    <script src="Atv05.js"></script>
+</head>
+<body>
+    <!-- ENUNCIADOS -->
+        <h6>Informe o valor que gostaria de converter:</h6>
+        <input type="number" value="Dolar para Real" autofocus name="" id="valor">
+    </div>
+    <div>
+         <h6 id="retorno">Informe para qual moeda gostaria de realizar a conversão:</h6>
+    </div>
+    <!-- FORMULÁRIO -->
+    <div class="form-check">
+    <form>
+         <p><input class="form-check-input" type="radio" name="Conversão" id="ER" onclick="euroToReal()">
+         <label class="form-check-label" for="ER">Euro para Real</label></p>
+         <p><input class="form-check-input" type="radio" name="Conversão" id="RE" onclick="realToEuro()"> 
+         <label class="form-check-label" for="RE">Real para Euro</label></p>
+         <p><input class="form-check-input" type="radio" name="Conversão" id="LR" onclick="libraToReal()"> 
+         <label class="form-check-label" for="LR">Libra para Real</label></p>
+         <p><input class="form-check-input" type="radio" name="Conversão" id="RL" onclick="realToLibra()"> 
+         <label class="form-check-label" for="RL">Real para Libra</label></p>
+         <p><input class="form-check-input" type="radio" name="Conversão"id="DR" onclick="dolarToReal()"> 
+         <label class="form-check-label" for="DR">Dólar para Real</label></p>
+         <p><input class="form-check-input" type="radio" name="Conversão" id="RD" onclick="realtoDolar()"> 
+         <label class="form-check-label" for="RD">Real para Dólar</label></p>
+    </form>
+
+    
+</div>
+
+</body>
+</html>
