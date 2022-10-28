@@ -120,7 +120,7 @@ let produtos = [
     {
         // 11
         "segmento": "Vestuario",
-        "nome": "Sandália de Tiras",
+        "nome": "Sandalia de Tiras",
         "marca": "Gucci",
         "valor": 5000,
         "estoque": 10,
@@ -130,7 +130,7 @@ let produtos = [
     {
         // 12
         "segmento": "Vestuario",
-        "nome": "Tênis Track",
+        "nome": "Tenis Track",
         "marca": "Balenciaga",
         "valor": 9200,
         "estoque": 8,
@@ -140,7 +140,7 @@ let produtos = [
     {
         // 13
         "segmento": "Vestuario",
-        "nome": "Tênis Slip-On",
+        "nome": "Tenis Slip-On",
         "marca": "Balenciaga",
         "valor": 6600,
         "estoque": 11,
@@ -161,7 +161,7 @@ let produtos = [
     {
         // 15
         "segmento": "Vestuario",
-        "nome": "Sandália Plataforma",
+        "nome": "Sandalia Plataforma",
         "marca": "Dr.Martens",
         "valor": 1450,
         "estoque": 8,
@@ -216,7 +216,7 @@ let produtos = [
     {
         // 20
         "segmento": "Casa",
-        "nome": "Conjunto de Moedor Temperos",
+        "nome": "Conjunto Moedor de Temperos",
         "marca": "Mor",
         "valor": 60,
         "estoque": 40,
@@ -256,7 +256,7 @@ let produtos = [
     {
         // 24
         "segmento": "Casa",
-        "nome": "Mesa de centro",
+        "nome": "Mesa de Centro",
         "marca": "Morada",
         "valor": 290,
         "estoque": 23,
@@ -265,7 +265,7 @@ let produtos = [
 
     {
         // 25
-        "segmento": "Casa e Decoração",
+        "segmento": "Casa",
         "nome": "Colher de Bambu",
         "marca": "Emporium",
         "valor": 25,
@@ -275,7 +275,7 @@ let produtos = [
 
     {
         // 26
-        "segmento": "Casa e Decoração",
+        "segmento": "Casa",
         "nome": "Cafeteira Italiana",
         "marca": "Casita",
         "valor": 100,
@@ -286,7 +286,7 @@ let produtos = [
 
     {
         // 27
-        "segmento": "Casa e Decoração",
+        "segmento": "Casa",
         "nome": "Prensa Francesa",
         "marca": "Oxford",
         "valor": 120,
@@ -337,10 +337,10 @@ function listarProdutosRandom() {
     let numeroGerado = [];
 
     let indiceTeste = 0;
-    for (var i = 0; i < 12; i++) {
+    for (let i = 0; i < 12; i++) {
         let repetido = false;
         indiceTeste = Math.floor(Math.random() * produtos.length);
-        for (var j = 0; j < numeroGerado.length; j++) {
+        for (let j = 0; j < numeroGerado.length; j++) {
             if (numeroGerado[j] == indiceTeste) {
                 repetido = true;
             }
@@ -412,19 +412,19 @@ window.onload = function () {
 
         let elementTableCarrinho = document.getElementById("tableCarrinho");
 
-        let htmlTabelaCarrinho = " <thead><tr><th>Codigo</th><th>Nome</th><th>Quantidade</th><th>Preço</th></tr></thead>"
+        let htmlTabelaCarrinho = " <thead><tr><th>ID Produto</th><th>Nome</th><th>Quantidade</th><th>Preço</th></tr></thead>"
         let total = 0;
-        for (var i = 0; i < localStorage.length; i++) {
-            var key = localStorage.key(i);
-            var value = JSON.parse(localStorage.getItem(key));
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            let value = JSON.parse(localStorage.getItem(key));
             total += value.qtd * value.valor;
             htmlTabelaCarrinho += `<tr><td>${value.posicao}</td><td>${value.nome}</td><td> <input type='text' id='qtd${value.posicao}' value='${value.qtd}'</td><td>${value.valor.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</td><td><button onclick='atualizarQtd(${value.posicao})'>Atualizar Quantidade</button><button onclick='removerCarrinho(${value.posicao})'>Remover</button></td></tr>`;
         }
         elementTableCarrinho.innerHTML = htmlTabelaCarrinho;
-        document.getElementById("totalRodape").innerHTML = "Total: " + total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+        document.getElementById("totalRodape").innerHTML = "Total da compra: " + total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
     }
     else {
-        var dadosPesquisaSegmento = window.location.search;
+        let dadosPesquisaSegmento = window.location.search;
         if (dadosPesquisaSegmento == "") {
             listarProdutosRandom();
         }

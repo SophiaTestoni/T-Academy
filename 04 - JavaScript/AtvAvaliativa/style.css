@@ -1,37 +1,61 @@
 .prod{
-
     width: 300px;
-    margin: 30px;
-
+    margin: 10px;
+    color: rgb(250, 89, 215);
 }
 
 .prod img{
+    width: 230px;
+    height: 230px;
+    padding: 30px;
+    margin-left: 25px;
+}
 
-width: 250px;
-height: 250px;
-padding: 30px;
-margin-left: 25px;
+div{
+    margin: 10px;
 }
 
 button{
- position: relative;
- color: green;
+    position: relative;
+    color: rgb(254, 27, 205);
 }
 
 .prod p{
-
     text-align: center;
-
 }
 
 h1{
-    font-size: 20px;
+    font-size: 17px;
     text-align: center;
-
 }
 
 .inputType.placeholder{
-
     text-align: center;
-
 }
+
+h3{
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(207, 0, 162);
+}
+
+::-webkit-input-placeholder{
+    text-align: center;
+    color: rgb(255, 178, 240);
+}
+
+.nav-link,
+.nav-link:hover{
+color:rgb(254, 124, 226);
+}
+
+.navbar-brand,
+.navbar-brand:hover{
+color:rgb(207, 0, 162);
+}
+
+.fundoNavBar{
+    background-color: rgb(255, 248, 253) ;
+}
+
+
