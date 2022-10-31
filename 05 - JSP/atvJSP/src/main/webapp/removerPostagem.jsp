@@ -1,12 +1,12 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="atvJSP.Conexao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Remover Postagem</title>
 </head>
 <body>
 
@@ -24,7 +24,7 @@
 		PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 		pstmt.setInt(1,codigo);
 		
-		//Executar a remoção
+		//Executar a remoÃ§Ã£o
 		pstmt.execute();
 		
 		//Redirecionamento

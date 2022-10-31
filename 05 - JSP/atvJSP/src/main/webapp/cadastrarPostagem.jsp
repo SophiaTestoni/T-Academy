@@ -1,11 +1,11 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="atvJSP.Conexao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Cadastro de postagem</title>
 <script src="postagem.js"></script>
 </head>
@@ -19,16 +19,16 @@
 		//exibir dados
 		out.print(titulo + "<br>" + subtitulo);  
 		
-		// efetuar a conexão
+		// efetuar a conexÃ£o
 		Conexao c = new Conexao();
 		
-		// SQL - Não concatena por segurança e performance, será passado o parâmetro conforme linha 30
+		// SQL - NÃ£o concatena por seguranÃ§a e performance, serÃ¡ passado o parÃ¢metro conforme linha 32
 		String sql = "INSERT INTO postagens (titulo, subtitulo) VALUES (?,?)";
 				
 		//PreparedStatement	-     vai fazer a conexao com o banco e o que ele precisa fazer
 		PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 				
-		//Passar os parametros do SQL - aqui começa com 1 pq começa com 1 no banco de dados
+		//Passar os parametros do SQL - aqui comeÃ§a com 1 pq comeÃ§a com 1 no banco de dados
 		pstmt.setString(1, titulo);
 		pstmt.setString(2, subtitulo);
 				

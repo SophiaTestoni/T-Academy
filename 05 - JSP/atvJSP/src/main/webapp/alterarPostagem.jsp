@@ -1,12 +1,12 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="atvJSP.Conexao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Alterar Postagem</title>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
 		pstmt.setString(2,subtitulo);
 		pstmt.setInt(3,codigo);
 		
-		//Executar a alteração
+		//Executar a alteraÃ§Ã£o
 		pstmt.execute();
 		
 		//Redirecionamento
