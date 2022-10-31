@@ -1,3 +1,6 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="pacote.Conexao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -33,16 +36,38 @@
 	</tr>
 	</thead>
 	<tbody>
+	
+	<%
+		//Conexão com o banco MySQL
+		Conexao c = new Conexao();
+		
+		// Comando SQL - esse comando vai selecionar todas as informações cadastradas na tabela pessoas
+		String sql = "SELECT * FROM pessoas";
+		
+		//Statement - não tem parametros para passar, usar o Statement
+		// Quando tem parâmetros usar o PreparedStatement
+		Statement  stmt = c.efetuarConexao().createStatement();
+		
+		// Obter dados da tabela pessoas - comando específico do Java para dados do db como se fosse um ArrayList
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		//Laço de repetição - rs.next vai fazer linha a linha até não ter mais
+		// Abrindo as chaves e fechando após o TR para ele pegar a estrutura que montamos
+		while(rs.next()){
+		
+	%>
+		<!-- Lembrando que começa na posição 1 e não na 0 devido a estrutura do db -->
 	<tr>
-		<td>1</td>
-		<td>Sophia</td>
-		<td>22</td>
-		<td><a href="removerPessoa.jsp" class="btn btn-danger">Remover</a></td>
+		<td><% out.print(rs.getInt(1)); %></td>
+		<td><% out.print(rs.getString(2)); %></td>
+		<td><% out.print(rs.getInt(3)); %></td>
+		<!-- Preciso saber qual será removido, portanto necessário passar o codigo tbm -->
+		<td><a href="removerPessoa.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-danger">Remover</a></td>
 	</tr>
 	
+	<% } %>
+	
 	</tbody>
-	
-	
 	</table>
 
 </body>
