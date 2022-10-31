@@ -54,17 +54,19 @@
 	
 	ResultSet rs = pstmt.executeQuery();
 	
-	String titulo = "", subtitulo = "";
+	String titulo = "", subtitulo = "", conteudo = "";
 	
 	while(rs.next()){
 		titulo = rs.getString(2);
 		subtitulo = rs.getString(3);
+		conteudo = rs.getString(4);
 	}
 %>
 
 <form action="alterarPostagem.jsp" method="post" onsubmit="return validaPostagem()">
 	<input type="text" placeholder="Título" value="<% out.print(titulo); %>" name="titulo" id="titulo" class="form-control">
 	<input type="text" placeholder="Subtitulo" value="<% out.print(subtitulo); %>" name="subtitulo" id="subtitulo" class="form-control">
+	<input type="text" placeholder="Conteudo" value="<% out.print(conteudo); %>" name="conteudo" id="conteudo" class="form-control">
 	<input type="hidden" name="codigo" value="<% out.print(codigo); %>">
 	<input type="submit" value="Alterar" class="btn btn-primary">
 </form>

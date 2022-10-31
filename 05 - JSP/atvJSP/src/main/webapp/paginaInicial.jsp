@@ -1,3 +1,6 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="atvJSP.Conexao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,9 +44,40 @@
       <h3>Notícias de hoje</h3>
         <div class="row" id="listarPostagens"></div>
     </div>
+    <div class="row">
     
+    <%
+    Conexao c = new Conexao();
+	
+	String sql = "SELECT * FROM postagens order by codigo desc limit 10";
+	
+	PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
+	
+	ResultSet rs = pstmt.executeQuery();
+	
+	String titulo = "", subtitulo = "", conteudo = "";
+	int id = 0; 
+	while(rs.next()){
+		id = rs.getInt(1);
+		titulo = rs.getString(2);
+		subtitulo = rs.getString(3);
+		conteudo = rs.getString(4);
+	%>
+	
+	<div class="card">
+	  <h2><a href="noticias.jsp?id=<%out.print(id);%>"><% out.print(titulo);%></a></h2>
+	  <h5><% out.print(subtitulo);%></h5>
+	  <!-- trocar substring pro numero de caracteres que desejamos mostrar no preview da noticia -->
+	   <p><% out.print(conteudo.substring(0,15)); %> <a href="noticias.jsp?id=<%out.print(id);%>">ver mais...</a> </p>
+	</div>
+	
+	
+	<% }%>
+	
+
     
-   
+    </div>
+     
    
 </body>
 </html>

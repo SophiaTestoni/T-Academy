@@ -42,6 +42,7 @@
 <form action="cadastrarPostagem.jsp" method="post" onsubmit="return validaPostagem()">
 	<input type="text" placeholder="Título" name="titulo" id="titulo" class="form-control">
 	<input type="text" placeholder="Subtitulo" name="subtitulo" id="subtitulo" class="form-control">
+	<input type="text" placeholder="Notícia" name="conteudo" id="conteudo" class="form-control">
 	<input type="submit" value="Cadastrar" class="btn btn-primary">
 </form>
 
@@ -53,6 +54,7 @@
 		<th>#</th>
 		<th>Título</th>
 		<th>Subtitulo</th>
+		<th>Conteúdo</th>
 		<th>Alterar</th>
 		<th>Remover</th>
 	</tr>
@@ -79,46 +81,14 @@
 		<td><% out.print(rs.getInt(1)); %></td>
 		<td><% out.print(rs.getString(2)); %></td>
 		<td><% out.print(rs.getString(3)); %></td>
+		<td><% out.print(rs.getString(4)); %></td>
 		<td><a href="formAlterarPostagem.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-warning">Alterar</a></td>
 		<td><a href="removerPostagem.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-danger">Remover</a></td>
 	</tr>
 	
 	<% } %>
 	
-	<!-- ESTRUTURA DOS COMENTÁRIOS -->
-
-	<thead>
-	<tr>
-		<th>#</th>
-		<th>Nome</th>
-		<th>Comentário</th>
-	</tr>
-	</thead>
-	
-	<%
 		
-		sql = "SELECT * FROM comentarios";
-		
-	  	stmt = c.efetuarConexao().createStatement();
-		
-		// Obter dados da tabela - comando específico do Java para dados do db como se fosse um ArrayList
-		rs = stmt.executeQuery(sql);
-		
-		//Laço de repetição - rs.next vai fazer linha a linha até não ter mais
-		// Abrindo as chaves e fechando após o TR para ele pegar a estrutura que montamos
-		while(rs.next()){
-		
-	%>
-		<!-- Lembrando que começa na posição 1 e não na 0 devido a estrutura do db -->
-	<tr>
-		<td><% out.print(rs.getInt(1)); %></td>
-		<td><% out.print(rs.getString(2)); %></td>
-		<td><% out.print(rs.getString(3)); %></td>
-	</tr>
-	
-	<% } %>
-	
-	
 </tbody>
 </table>
 
