@@ -8,3 +8,11 @@ form input{
 	
 	margin-top: 10px;
 }
+
+h3{
+	text-align: center;
+}
+
+.fundoNavBar{
+    background-color: rgb(255, 248, 253) ;
+}

@@ -1,4 +1,4 @@
-function valida(){
+function validaPostagem(){
 
 	let titulo = document.getElementById("titulo").value;
 	let subtitulo = document.getElementById("subtitulo").value;
@@ -18,4 +18,11 @@ function valida(){
 		
 		return true;
 	}
+}
+
+function listarPostagens(){
+	
+	
+	
+	
 }

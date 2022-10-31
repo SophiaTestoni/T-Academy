@@ -1,19 +1,23 @@
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="com.mysql.cj.xdevapi.PreparableStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="atvJSP.Conexao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Página Inicial</title>
+<title>Index</title>
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <!-- CSS -->
 <link rel="stylesheet" href="postagem.css">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<!-- JS -->
+<script src="postagem.js" charset="UTF-8"></script>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg fundoNavBar">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Notícias</a>
@@ -37,11 +41,36 @@
   </div>
 </nav>
 
-<div class="container">
-      <h3>Notícias de hoje</h3>
-        <div class="row" id="listarPostagens"></div>
-    </div>
-   
-   
+<% 
+	int codigo = Integer.parseInt(request.getParameter("codigo"));
+	
+	Conexao c = new Conexao();
+	
+	String sql = "SELECT * FROM postagens WHERE codigo = ?";
+	
+	PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
+	
+	pstmt.setInt(1, codigo);
+	
+	ResultSet rs = pstmt.executeQuery();
+	
+	String titulo = "", subtitulo = "";
+	
+	while(rs.next()){
+		titulo = rs.getString(2);
+		subtitulo = rs.getString(3);
+	}
+	
+	
+%>
+
+<form action="alterarPostagem.jsp" method="post" onsubmit="return validaPostagem()">
+	<input type="text" placeholder="Título" value="<% out.print(titulo); %>" name="titulo" id="titulo" class="form-control">
+	<input type="text" placeholder="Subtitulo" value="<% out.print(subtitulo); %>" name="subtitulo" id="subtitulo" class="form-control">
+	<input type="hidden" name="codigo" value="<% out.print(codigo); %>">
+	<input type="submit" value="Alterar" class="btn btn-primary">
+</form>
+
+
 </body>
-</html>
+</html>;
