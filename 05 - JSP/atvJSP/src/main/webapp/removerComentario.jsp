@@ -1,11 +1,11 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="atvJSP.Conexao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -20,9 +20,8 @@
 		Conexao c = new Conexao();
 		PreparedStatement pstmt = c.efetuarConexao().prepareStatement(deleteC);
 		pstmt.setInt(1,codigo);
-		//Executar a remoção
+		//Executar a remoÃ§Ã£o
 		pstmt.execute();
-		
 
 		// Comando SQL
 		String sql = "DELETE FROM postagens WHERE codigo = ?";
@@ -31,7 +30,7 @@
 		PreparedStatement pstmtP = c.efetuarConexao().prepareStatement(sql);
 		pstmtP.setInt(1,codigo);
 				
-		//Executar a remoção
+		//Executar a remoÃ§Ã£o
 		pstmtP.execute();
 				
 		//Redirecionamento

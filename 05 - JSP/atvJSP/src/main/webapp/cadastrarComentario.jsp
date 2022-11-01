@@ -12,7 +12,7 @@
 
 <%
 
-		//Obter titulo e subtitulo
+	
 		String nome = request.getParameter("nome");
 		String mensagem = request.getParameter("mensagem");
 		int noticiaID = Integer.parseInt(request.getParameter("noticiaID"));		
