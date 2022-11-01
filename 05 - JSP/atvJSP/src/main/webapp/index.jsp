@@ -62,22 +62,36 @@
 	</thead>
 <tbody>
 	<%
-		//Conexão com o banco MySQL
+ 
+    int permissao = 0;
+    String session_u_name = (String)session.getAttribute("user");
+    String[] dados = null;
+    boolean estaLogado = false;
+	   if(session_u_name != null)
+	   {
+        dados = session_u_name.split(",");
+        permissao = Integer.parseInt(dados[1]);                  
+		   estaLogado = true;
+	   }
+	   
+	   if(permissao == 0){
+		   response.sendRedirect("telaLogin.jsp");
+	   }
+	   else
+	   {
+		   	
 		Conexao c = new Conexao();
 		
 		String sql = "SELECT * FROM postagens";
 		
 		Statement  stmt = c.efetuarConexao().createStatement();
 		
-		// Obter dados da tabela pessoas - comando específico do Java para dados do db como se fosse um ArrayList
 		ResultSet rs = stmt.executeQuery(sql);
-		
-		//Laço de repetição - rs.next vai fazer linha a linha até não ter mais
-		// Abrindo as chaves e fechando após o TR para ele pegar a estrutura que montamos
+
 		while(rs.next()){
 		
 	%>
-		<!-- Lembrando que começa na posição 1 e não na 0 devido a estrutura do db -->
+	
 	<tr>
 		<td><% out.print(rs.getInt(1)); %></td>
 		<td><% out.print(rs.getString(2)); %></td>
@@ -87,7 +101,7 @@
 		<td><a href="removerComentario.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-danger">Remover</a></td>
 	</tr>
 	
-	<% } %>
+	<% }} %>
 	
 		
 </tbody>

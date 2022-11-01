@@ -28,10 +28,37 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="paginaInicial.jsp">Inicio</a>
         </li>
-        <li class="nav-item">
+            
+        <% 
+           boolean estaLogado = false;
+           String[] dados = null;
+           int permissao = 0;
+           String session_u_name = (String)session.getAttribute("user");
+       	   if(session_u_name != null)
+       	   {
+               dados = session_u_name.split(",");
+               permissao = Integer.parseInt(dados[1]);                  
+       		   estaLogado = true;
+       	   }
+        %>
+      
+       <% if(permissao == 1){ %>
+         <li class="nav-item">    
           <a class="nav-link" href="index.jsp">Gerência</a>
         </li>
+        <%} %>
+      
+      
+       <% if(!estaLogado){ %>
+         <li class="nav-item">    
+          <a class="nav-link" href="telaLogin.jsp">Login</a>
+        </li>
+        <%} %>
        </ul>
+       
+      
+       
+       
       <form class="d-flex" role="search" action="pesquisarPostagem.jsp">
         <input class="form-control me-2" name="pesquisar" type="search" placeholder="Search" aria-label="Search">
         <input type="submit" value="Pesquisar" class="btn btn-primary">

@@ -10,8 +10,7 @@
 </head>
 <body>
 
-<%
-		
+<%		
 		//Obter o codigo da pessoa
 		int codigo = Integer.parseInt(request.getParameter("codigo"));
 		String titulo = request.getParameter("titulo");
