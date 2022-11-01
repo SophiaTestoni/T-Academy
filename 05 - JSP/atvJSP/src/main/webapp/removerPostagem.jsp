@@ -10,8 +10,10 @@
 </head>
 <body>
 
-	<%
-		//Obter o codigo da pessoa
+
+	<%		
+
+	//Obter o codigo da pessoa
 		int codigo = Integer.parseInt(request.getParameter("codigo"));
 
 		//Efetuar a conexao
@@ -20,6 +22,7 @@
 		// Comando SQL
 		String sql = "DELETE FROM postagens WHERE codigo = ?";
 		
+	
 		//PreparedStatement
 		PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 		pstmt.setInt(1,codigo);
@@ -30,9 +33,6 @@
 		//Redirecionamento
 		response.sendRedirect("index.jsp");
 	%>
-
-
-
 
 
 

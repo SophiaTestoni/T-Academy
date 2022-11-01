@@ -10,3 +10,5 @@ codigo INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR(30),
 idade INT 
 );
+
+SELECT * FROM pessoas;

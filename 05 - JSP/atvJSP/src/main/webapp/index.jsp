@@ -13,9 +13,10 @@
 <!-- CSS -->
 <link rel="stylesheet" href="postagem.css">
 <!-- JS -->
-<script src="postagem.js" charset="UTF-8"></script>
+<script src="validation.js" charset="UTF-8"></script>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg fundoNavBar">
   <div class="container-fluid">
     <a class="navbar-brand" href="paginaInicial.jsp">Notícias</a>
@@ -39,6 +40,8 @@
   </div>
 </nav>
 
+<!-- ESTRUTURA DAS POSTAGENS -->
+
 <form action="cadastrarPostagem.jsp" method="post" onsubmit="return validaPostagem()">
 	<input type="text" placeholder="Título" name="titulo" id="titulo" class="form-control">
 	<input type="text" placeholder="Subtitulo" name="subtitulo" id="subtitulo" class="form-control">
@@ -46,14 +49,12 @@
 	<input type="submit" value="Cadastrar" class="btn btn-primary">
 </form>
 
-
-	<!-- ESTRUTURA DAS POSTAGENS -->
 	<table class="table">
 	<thead>
 	<tr>
-		<th>#</th>
+		<th>ID</th>
 		<th>Título</th>
-		<th>Subtitulo</th>
+		<th>Subtítulo</th>
 		<th>Conteúdo</th>
 		<th>Alterar</th>
 		<th>Remover</th>
@@ -83,7 +84,7 @@
 		<td><% out.print(rs.getString(3)); %></td>
 		<td><% out.print(rs.getString(4)); %></td>
 		<td><a href="formAlterarPostagem.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-warning">Alterar</a></td>
-		<td><a href="removerPostagem.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-danger">Remover</a></td>
+		<td><a href="removerComentario.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-danger">Remover</a></td>
 	</tr>
 	
 	<% } %>

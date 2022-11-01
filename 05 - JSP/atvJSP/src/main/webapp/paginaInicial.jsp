@@ -49,7 +49,7 @@
     <%
     Conexao c = new Conexao();
 	
-	String sql = "SELECT * FROM postagens order by codigo desc limit 10";
+	String sql = "SELECT * FROM postagens ORDER BY codigo DESC LIMIT 10";
 	
 	PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 	

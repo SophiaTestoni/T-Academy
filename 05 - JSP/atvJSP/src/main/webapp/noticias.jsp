@@ -9,8 +9,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Noticias</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- JS -->
+<script src="validation.js" charset="UTF-8"></script>
+<!-- CSS -->
+<link rel="stylesheet" href="postagem.css">
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg fundoNavBar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="paginaInicial.jsp">Notícias</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="paginaInicial.jsp">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.jsp">Gerência</a>
+        </li>
+       </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" id="searchbar" onkeyup="busca_produtos('')" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
 		<% 
 		
 		int codigo = Integer.parseInt(request.getParameter("id"));
@@ -41,10 +72,12 @@
 		%>
 		
 	<div class="card">
-	  <h2><% out.print(titulo);%></h2>
-	  <h5><% out.print(subtitulo);%></h5>
-	   <p><% out.print(conteudo);%> </p>
+	  <h2 class="tit"><% out.print(titulo);%></h2>
+	  <h5 class="sub"><% out.print(subtitulo);%></h5>
+	   <p class="cont"><% out.print(conteudo);%> </p>
 	</div>
+	
+	<!-- ESTRUTURA DOS COMENTÁRIOS -->
 
 <form action="cadastrarComentario.jsp?noticiaID=<% out.print(codigo);%>" method="post" onsubmit="return validaComentario()">
 	<input type="text" placeholder="Nome" name="nome" id="nome" class="form-control">
@@ -52,10 +85,6 @@
 	<input type="submit" value="Enviar comentário" class="btn btn-primary">
 </form>
 
-
-<!-- ESTRUTURA DOS COMENTÁRIOS -->
-
-	
 	<%
 		
 	sql = "SELECT nome, mensagem FROM comentarios where codigo_noticia = " + codigo;
