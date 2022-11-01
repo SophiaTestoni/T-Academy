@@ -40,9 +40,9 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="card card2">
       <h3>Notícias de hoje</h3>
-        <div class="row" id="listarPostagens"></div>
+        <div class="row"></div>
     </div>
     <div class="row">
     
@@ -64,7 +64,7 @@
 		conteudo = rs.getString(4);
 	%>
 	
-	<div class="card">
+	<div class="card card1">
 	  <h2><a href="noticias.jsp?id=<%out.print(id);%>"><% out.print(titulo);%></a></h2>
 	  <h5><% out.print(subtitulo);%></h5>
 	  <!-- trocar substring pro numero de caracteres que desejamos mostrar no preview da noticia -->

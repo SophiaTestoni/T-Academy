@@ -9,24 +9,40 @@ form input{
 	margin-top: 10px;
 }
 
-h3{
-	text-align: center;
-}
 
 .fundoNavBar{
     background-color: rgb(255, 248, 253) ;
 }
 
+.card2 h3,
+.card2{
+width: 500px;
+margin: 20px auto;
+text-align: center;
 
-.tit{
-	
-	color: blue; 
-	
 }
 
-.card{
+.card1 h3,
+.card1 h2,
+.card1{
 	
+	width: 500px;
+	margin: 20px auto;
 	text-align: center;
+	color: #014040;
+	
+}
+
+.card1 h2{
+
+	color: #014040;
 	
 	
 }
+
+
+
+
+
+
+
