@@ -32,9 +32,9 @@
           <a class="nav-link" href="index.jsp">Gerência</a>
         </li>
        </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" id="searchbar" onkeyup="busca_produtos('')" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex" role="search" action="pesquisarPostagem.jsp">
+        <input class="form-control me-2" name="pesquisar" type="search" placeholder="Search" aria-label="Search">
+        <input type="submit" value="Pesquisar" class="btn btn-primary">
       </form>
     </div>
   </div>
