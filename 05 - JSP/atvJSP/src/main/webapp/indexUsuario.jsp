@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Index</title>
+<title>Gerência Usuários</title>
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <!-- CSS -->
@@ -40,24 +40,14 @@
   </div>
 </nav>
 
-<!-- ESTRUTURA DAS POSTAGENS -->
-
-<form action="cadastrarPostagem.jsp" method="post" onsubmit="return validaPostagem()">
-	<input type="text" placeholder="Título" name="titulo" id="titulo" class="form-control">
-	<input type="text" placeholder="Subtitulo" name="subtitulo" id="subtitulo" class="form-control">
-	<input type="text" placeholder="Notícia" name="conteudo" id="conteudo" class="form-control">
-	<input type="submit" value="Cadastrar" class="btn btn-primary">
-</form>
 
 	<table class="table">
 	<thead>
 	<tr>
-		<th>ID</th>
-		<th>Título</th>
-		<th>Subtítulo</th>
-		<th>Conteúdo</th>
-		<th>Alterar</th>
-		<th>Remover</th>
+		<th>Código</th>
+		<th>Email</th>
+		<th>Ativo</th>
+		<th>Banir</th>
 	</tr>
 	</thead>
 <tbody>
@@ -82,23 +72,29 @@
 		   	
 		Conexao c = new Conexao();
 		
-		String sql = "SELECT * FROM postagens";
+		String sql = "SELECT codigo, email, ativo FROM usuarios";
 		
 		Statement  stmt = c.efetuarConexao().createStatement();
 		
 		ResultSet rs = stmt.executeQuery(sql);
 
 		while(rs.next()){
-		
+		int ativo = rs.getInt(3);
+		String mensagem = "";
+		if(ativo == 0){
+			mensagem = "Banido";
+		}
+		else{
+			mensagem = "Ativo";
+		}
 	%>
 	
 	<tr>
-		<td><% out.print(rs.getInt(1)); %></td>
+		<td><% out.print(rs.getString(1)); %></td>
 		<td><% out.print(rs.getString(2)); %></td>
-		<td><% out.print(rs.getString(3)); %></td>
-		<td><% out.print(rs.getString(4)); %></td>
-		<td><a href="formAlterarPostagem.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-warning">Alterar</a></td>
-		<td><a href="removerPostagem.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-danger">Remover</a></td>
+		<td><% out.print(mensagem); %></td>
+		
+		<td><a href="formBanirUsuario.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-warning">Banir</a></td>
 	</tr>
 	
 	<% }} %>

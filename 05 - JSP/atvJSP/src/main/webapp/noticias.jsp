@@ -33,9 +33,9 @@
           <a class="nav-link" href="index.jsp">Gerência</a>
         </li>
        </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" id="searchbar" onkeyup="busca_produtos('')" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex" role="search" action="pesquisarPostagem.jsp">
+        <input class="form-control me-2" name="pesquisar" type="search" placeholder="Search" aria-label="Search">
+        <input type="submit" value="Pesquisar" class="btn btn-primary">
       </form>
     </div>
   </div>
@@ -43,6 +43,7 @@
 
 
 		<% 
+
 		
 		int codigo = Integer.parseInt(request.getParameter("id"));
 
@@ -77,17 +78,16 @@
 	   <p class="cont"><% out.print(conteudo);%> </p>
 	</div>
 	
-	<!-- ESTRUTURA DOS COMENTÁRIOS -->
+<!-- ESTRUTURA DOS COMENTÁRIOS -->
 
 <form action="cadastrarComentario.jsp?noticiaID=<% out.print(codigo);%>" method="post" onsubmit="return validaComentario()">
-	<input type="text" placeholder="Nome" name="nome" id="nome" class="form-control">
 	<input type="text" placeholder="Comentário" name="mensagem" id="mensagem" class="form-control">
 	<input type="submit" value="Enviar comentário" class="btn btn-primary">
 </form>
 
 	<%
 		
-	sql = "SELECT nome, mensagem FROM comentarios where codigo_noticia = " + codigo;
+	sql = "SELECT nome, mensagem FROM comentarios where ativo = 1 and codigo_noticia = " + codigo;
 		
 	  	Statement stmt = c.efetuarConexao().createStatement();
 		

@@ -42,6 +42,24 @@
 </nav>
 
 <% 
+	int permissao = 0;
+	String session_u_name = (String)session.getAttribute("user");
+	String[] dados = null;
+	boolean estaLogado = false;
+   if(session_u_name != null)
+   {
+    dados = session_u_name.split(",");
+    permissao = Integer.parseInt(dados[1]);                  
+	   estaLogado = true;
+   }
+   
+   if(permissao == 0){
+	   response.sendRedirect("telaLogin.jsp");
+   }
+   else
+   {
+
+
 	int codigo = Integer.parseInt(request.getParameter("codigo"));
 	
 	Conexao c = new Conexao();
@@ -70,7 +88,7 @@
 	<input type="hidden" name="codigo" value="<% out.print(codigo); %>">
 	<input type="submit" value="Alterar" class="btn btn-primary">
 </form>
-
+<%} %>
 
 </body>
 </html>

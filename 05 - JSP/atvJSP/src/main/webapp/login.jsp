@@ -23,7 +23,7 @@ String password = request.getParameter("password");
 Conexao c = new Conexao();
 
 // Comando SQL
-String sql = "SELECT permissao FROM usuarios WHERE email = ? and senha = ?";
+String sql = "SELECT permissao FROM usuarios WHERE email = ? and senha = ? and ativo = 1";
 
 //PreparedStatement
 PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);

@@ -41,6 +41,24 @@
 <p>Resultado da sua pesquisa</p>
 
 <%
+	int permissao = 0;
+	String session_u_name = (String)session.getAttribute("user");
+	String[] dados = null;
+	boolean estaLogado = false;
+	if(session_u_name != null)
+{
+	dados = session_u_name.split(",");
+	permissao = Integer.parseInt(dados[1]);                  
+   estaLogado = true;
+}
+
+	if(permissao == 0){
+   response.sendRedirect("telaLogin.jsp");
+	}
+	else
+{
+
+
 		//Obter o codigo da pessoa
 		String resultadoPesquisa = request.getParameter("pesquisar");
 
@@ -70,11 +88,8 @@
 	<input type="text" placeholder="Conteudo" value="<% out.print(conteudo); %>" name="conteudo" id="conteudo" class="form-control">
 </form>
 
-<%} %>
+<%}} %>
 
 
-
-	
-	
 </body>
 </html>

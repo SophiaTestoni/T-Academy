@@ -22,24 +22,20 @@ function validaPostagem(){
 
 function validaComentario(){
 	
-	let nome = document.getElementById("nome").value;
+	
 	let mensagem = document.getElementById("mensagem").value;
 	
 	//Condicional
-	if(nome == ""){
-		
-		alert("Informe o seu nome!")
-		return false;
 	
-	}else if(mensagem == ""){
+	if(mensagem == ""){
 		
 		alert("Informe a mensagem")
 		return false;
 		
-	}else{
+	}
 		
 		return true;
-	}
+	
 }
 
 	

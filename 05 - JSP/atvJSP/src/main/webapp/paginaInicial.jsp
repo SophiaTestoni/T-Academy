@@ -28,7 +28,11 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="paginaInicial.jsp">Inicio</a>
         </li>
-            
+        
+        
+        
+        
+        
         <% 
            boolean estaLogado = false;
            String[] dados = null;
@@ -44,7 +48,13 @@
       
        <% if(permissao == 1){ %>
          <li class="nav-item">    
-          <a class="nav-link" href="index.jsp">Gerência</a>
+          <a class="nav-link" href="index.jsp">Gerir Notícias</a>
+        </li>
+        <li class="nav-item">    
+          <a class="nav-link" href="indexComentario.jsp">Gerir Comentários</a>
+        </li>
+        <li class="nav-item">    
+          <a class="nav-link" href="indexUsuario.jsp">Gerir Usuários</a>
         </li>
         <%} %>
       
@@ -53,7 +63,14 @@
          <li class="nav-item">    
           <a class="nav-link" href="telaLogin.jsp">Login</a>
         </li>
-        <%} %>
+        <%} 
+        else{
+            %>       
+        	<li class="nav-item">    
+          <a class="nav-link" href="logout.jsp">Logout</a>
+        </li>
+       <% }
+   	%>         
        </ul>
        
       
