@@ -41,27 +41,12 @@
   </div>
 </nav>
 
-<% 		int permissao = 0;
-		String session_u_name = (String)session.getAttribute("user");
-		String[] dados = null;
-		boolean estaLogado = false;
-		if(session_u_name != null){
-		dados = session_u_name.split(",");
-		permissao = Integer.parseInt(dados[1]);                  
-   		estaLogado = true;
-	}
-
-		if(permissao == 0){
-   		response.sendRedirect("telaLogin.jsp");
-	}
-	else
-	{
-	
+<% 	
 	int codigo = Integer.parseInt(request.getParameter("codigo"));
 	
 	Conexao c = new Conexao();
 	
-	String sql = "SELECT email, senha FROM usuarios WHERE email = ?";
+	String sql = "SELECT email, senha FROM usuarios WHERE codigo = ?";
 	
 	PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 	

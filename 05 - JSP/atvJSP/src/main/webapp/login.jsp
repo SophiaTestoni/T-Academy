@@ -23,7 +23,7 @@ String password = request.getParameter("password");
 Conexao c = new Conexao();
 
 // Comando SQL
-String sql = "SELECT permissao FROM usuarios WHERE email = ? and senha = ? and ativo = 1";
+String sql = "SELECT permissao, codigo FROM usuarios WHERE email = ? and senha = ? and ativo = 1";
 
 //PreparedStatement
 PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
@@ -43,6 +43,7 @@ boolean loginFuncionou = result.next();
 	Usuario user = new Usuario();
     user.setEmail(login);
     user.setPermissao(result.getInt(1));
+    user.setCodigo(result.getInt(2));
     session.setAttribute("user", user.getDadosParaSessao());
     response.sendRedirect("paginaInicial.jsp"); 
  }

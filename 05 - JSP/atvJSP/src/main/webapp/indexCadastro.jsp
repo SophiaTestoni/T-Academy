@@ -52,11 +52,11 @@
 	</thead>
 <tbody>
 	<%
-	
- 
+
+
 		Conexao c = new Conexao();
 		
-		String sql = "SELECT * FROM usuarios";
+		String sql = "SELECT * FROM usuarios" ;
 		
 		Statement  stmt = c.efetuarConexao().createStatement();
 		

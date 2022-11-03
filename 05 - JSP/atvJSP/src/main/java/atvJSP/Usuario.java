@@ -21,7 +21,7 @@ public class Usuario {
 	}
 	
 	public String getDadosParaSessao() {
-		return this.getEmail() + "," + this.getPermissao();
+		return this.getEmail() + "," + this.getPermissao() + "," + this.getCodigo();
 	}
 	
 	private int codigo;
