@@ -41,29 +41,27 @@
   </div>
 </nav>
 
-<% 
-	int permissao = 0;
-	String session_u_name = (String)session.getAttribute("user");
-	String[] dados = null;
-	boolean estaLogado = false;
-   if(session_u_name != null){
-    dados = session_u_name.split(",");
-    permissao = Integer.parseInt(dados[1]);                  
-	   estaLogado = true;
-   }
-   
-   if(permissao == 0){
-	   response.sendRedirect("telaLogin.jsp");
-   }
-   else
-   {
-	 out.print(request.getParameter("codigo"));
-	 
+<% 		int permissao = 0;
+		String session_u_name = (String)session.getAttribute("user");
+		String[] dados = null;
+		boolean estaLogado = false;
+		if(session_u_name != null){
+		dados = session_u_name.split(",");
+		permissao = Integer.parseInt(dados[1]);                  
+   		estaLogado = true;
+	}
+
+		if(permissao == 0){
+   		response.sendRedirect("telaLogin.jsp");
+	}
+	else
+	{
+	
 	int codigo = Integer.parseInt(request.getParameter("codigo"));
 	
 	Conexao c = new Conexao();
 	
-	String sql = "SELECT email, senha FROM usuarios WHERE codigo = ?";
+	String sql = "SELECT email, senha FROM usuarios WHERE email = ?";
 	
 	PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 	
@@ -74,8 +72,8 @@
 	String email = "", senha = ""; 
 
 	while(rs.next()){
-		email = rs.getString(2);
-		senha = rs.getString(3);
+		email = rs.getString(1);
+		senha = rs.getString(2);
 	}
 	
 
@@ -87,7 +85,7 @@
 	<input type="hidden" name="codigo" value="<% out.print(codigo); %>">
 	<input type="submit" value="Alterar" class="btn btn-success">
 </form>
-<%} %>
+
 
 </body>
 </html>

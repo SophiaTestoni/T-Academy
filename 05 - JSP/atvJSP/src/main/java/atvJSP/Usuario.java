@@ -24,7 +24,7 @@ public class Usuario {
 		return this.getEmail() + "," + this.getPermissao();
 	}
 	
-private int codigo;
-   private String email;
-   private int permissao;
+	private int codigo;
+	private String email;
+	private int permissao;
 }

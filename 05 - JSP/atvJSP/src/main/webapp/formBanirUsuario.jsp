@@ -13,6 +13,23 @@
 
 <%
 
+int permissao = 0;
+String session_u_name = (String)session.getAttribute("user");
+String[] dados = null;
+boolean estaLogado = false;
+if(session_u_name != null)
+{
+dados = session_u_name.split(",");
+permissao = Integer.parseInt(dados[1]);                  
+   estaLogado = true;
+}
+
+if(permissao == 0){
+   response.sendRedirect("telaLogin.jsp");
+}
+else
+{
+
 int codigo = Integer.parseInt(request.getParameter("codigo"));
 
 // efetuar a conexão
@@ -34,5 +51,7 @@ pstmt.execute();
 response.sendRedirect("indexUsuario.jsp");
 
 %>
+
+<%} %>
 </body>
 </html>
