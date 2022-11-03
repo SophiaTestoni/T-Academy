@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Formulário de Alteração</title>
+<title>Formulário de Alteração de Cadastro</title>
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <!-- CSS -->
@@ -46,8 +46,7 @@
 	String session_u_name = (String)session.getAttribute("user");
 	String[] dados = null;
 	boolean estaLogado = false;
-   if(session_u_name != null)
-   {
+   if(session_u_name != null){
     dados = session_u_name.split(",");
     permissao = Integer.parseInt(dados[1]);                  
 	   estaLogado = true;
@@ -58,11 +57,13 @@
    }
    else
    {
+	 out.print(request.getParameter("codigo"));
+	 
 	int codigo = Integer.parseInt(request.getParameter("codigo"));
 	
 	Conexao c = new Conexao();
 	
-	String sql = "SELECT * FROM postagens WHERE codigo = ?";
+	String sql = "SELECT email, senha FROM usuarios WHERE codigo = ?";
 	
 	PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 	
@@ -70,19 +71,19 @@
 	
 	ResultSet rs = pstmt.executeQuery();
 	
-	String titulo = "", subtitulo = "", conteudo = "";
-	
+	String email = "", senha = ""; 
+
 	while(rs.next()){
-		titulo = rs.getString(2);
-		subtitulo = rs.getString(3);
-		conteudo = rs.getString(4);
+		email = rs.getString(2);
+		senha = rs.getString(3);
 	}
+	
+
 %>
 
-<form action="alterarPostagem.jsp" method="post" onsubmit="return validaPostagem()">
-	<input type="text" placeholder="Título" value="<% out.print(titulo); %>" name="titulo" id="titulo" class="form-control">
-	<input type="text" placeholder="Subtitulo" value="<% out.print(subtitulo); %>" name="subtitulo" id="subtitulo" class="form-control">
-	<input type="text" placeholder="Conteudo" value="<% out.print(conteudo); %>" name="conteudo" id="conteudo" class="form-control">
+<form action="alterarCadastro.jsp" method="post" onsubmit="return validaPostagem()">
+	<input type="text" placeholder="email" value="<% out.print(email); %>" name="email" id="email" class="form-control">
+	<input type="text" placeholder="senha" value="<% out.print(senha); %>" name="senha" id="senha" class="form-control">
 	<input type="hidden" name="codigo" value="<% out.print(codigo); %>">
 	<input type="submit" value="Alterar" class="btn btn-success">
 </form>

@@ -28,6 +28,9 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="paginaInicial.jsp">Inicio</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="alterarCadastro.jsp">Alterar Cadastro</a>
+        </li>
         
         <% 
            boolean estaLogado = false;
@@ -99,10 +102,10 @@
 	%>
 	
 	<div class="card card1">
-	  <h2><a class="teste" href="noticias.jsp?id=<%out.print(id);%>"><% out.print(titulo);%></a></h2>
-	  <h5><% out.print(subtitulo);%></h5>
+	  <h4><a class="titulo" href="noticias.jsp?id=<%out.print(id);%>"><% out.print(titulo);%></a></h4>
+	  <h6><% out.print(subtitulo);%></h6>
 	  <!-- trocar substring pro numero de caracteres que desejamos mostrar no preview da noticia -->
-	   <p><% out.print(conteudo.substring(0,15)); %> <a href="noticias.jsp?id=<%out.print(id);%>">ver mais...</a> </p>
+	   <p><% out.print(conteudo.substring(0,25)); %> <a href="noticias.jsp?id=<%out.print(id);%>">ver mais...</a> </p>
 	</div>
 	
 	
