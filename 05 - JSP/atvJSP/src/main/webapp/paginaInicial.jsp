@@ -29,7 +29,7 @@
           <a class="nav-link" aria-current="page" href="paginaInicial.jsp">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="alterarCadastro.jsp">Alterar Cadastro</a>
+          <a class="nav-link" aria-current="page" href="indexCadastro.jsp">Alterar Cadastro</a>
         </li>
         
         <% 

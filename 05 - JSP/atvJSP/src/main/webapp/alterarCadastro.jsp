@@ -11,28 +11,27 @@
 <body>
 
 <%		
-	
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
+		int codigo = Integer.parseInt(request.getParameter("codigo"));
+		String email = request.getParameter("login");
+		String senha = request.getParameter("password");
 		
-
 		Conexao c = new Conexao();
 		
 		
-		String sql = "UPDATE usuarios SET email = ?, senha = ? WHERE email = ?";
+		String sql = "UPDATE usuarios SET email = ?, senha = ? WHERE codigo = ?";
 		
 	
 		PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 		pstmt.setString(1, email);
 		pstmt.setString(2, senha);
-		pstmt.setString(3, email);
+		pstmt.setInt(3, codigo);
 		
 		
 		//Executar a alteração
 		pstmt.execute();
 	
 		
-		response.sendRedirect("indexCadastro.jsp");
+		response.sendRedirect("paginaInicial.jsp");
 	%>
  
 

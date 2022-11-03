@@ -79,7 +79,7 @@
 	}
 %>
 
-<form action="alterarPostagem.jsp" method="post" onsubmit="return validaPostagem()">
+<form action="alterarCadastro.jsp" method="post" onsubmit="return validaPostagem()">
 	<input type="text" placeholder="Título" value="<% out.print(titulo); %>" name="titulo" id="titulo" class="form-control">
 	<input type="text" placeholder="Subtitulo" value="<% out.print(subtitulo); %>" name="subtitulo" id="subtitulo" class="form-control">
 	<input type="text" placeholder="Conteudo" value="<% out.print(conteudo); %>" name="conteudo" id="conteudo" class="form-control">

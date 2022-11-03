@@ -1,3 +1,4 @@
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="atvJSP.Conexao"%>
@@ -42,41 +43,51 @@
 
 <!-- ESTRUTURA DA ALTERAÇÃO DE CADASTRO -->
 
-	<table class="table">
-	<thead>
-	<tr>
-		<th>Email</th>
-		<th>Senha</th>
-		<th>Alterar</th>
-	</tr>
-	</thead>
-<tbody>
-	<%
+  <%
+ 
+    int permissao = 0;
+    String session_u_name = (String)session.getAttribute("user");
+    String[] dados = null;
+    boolean estaLogado = false;
+     if(session_u_name != null)
+     {
+        dados = session_u_name.split(",");
+        permissao = Integer.parseInt(dados[1]);                  
+       estaLogado = true;
+     }
+     
+     if(estaLogado == false){
+       response.sendRedirect("telaLogin.jsp");
+     }
+     else
+     {
+        
 
+    Conexao c = new Conexao();
+    
+    String sql = "SELECT * FROM usuarios where codigo = ?";
+    
+    PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
+    pstmt.setInt(1,Integer.parseInt(dados[2]));
 
-		Conexao c = new Conexao();
-		
-		String sql = "SELECT * FROM usuarios" ;
-		
-		Statement  stmt = c.efetuarConexao().createStatement();
-		
-		ResultSet rs = stmt.executeQuery(sql);
+    
+    ResultSet rs = pstmt.executeQuery();
+    rs.next();
+    
+  %>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
 
-		while(rs.next()){
-		
-	%>
-	
-	<tr>
-		<td><% out.print(rs.getString(2)); %></td>
-		<td><% out.print(rs.getString(3)); %></td>
-		<td><a href="formAlterarCadastro.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-warning">Alterar</a></td>
-	</tr>
-	
-	<% } %>
-	
-		
-</tbody>
-</table>
+    <!-- Login Form -->
+    <form method="post" action="alterarCadastro.jsp">
+      <input type="text" id="login" value="<% out.print(rs.getString(2)); %>" class="fadeIn second" name="login" placeholder="Login">
+      <input type="text" id="password" value="<% out.print(rs.getString(3)); %>" class="fadeIn third" name="password" placeholder="Digite sua senha">
+      <input type="hidden" name="codigo" value="<% out.print(rs.getString(1)); %>">
+	<input type="submit" value="Alterar" class="btn btn-success">
 
+    </form>
+
+  </div>
+</div>    
+ <%}%>
 </body>
-</html>
