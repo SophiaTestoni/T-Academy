@@ -94,7 +94,7 @@
 		<td><% out.print(rs.getString(2)); %></td>
 		<td><% out.print(mensagem); %></td>
 		
-		<td><a href="formBanirUsuario.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-warning">Banir</a></td>
+		<td><a href="formBanirUsuario.jsp?codigo=<% out.print(rs.getInt(1)); %>" class="btn btn-dark">Banir</a></td>
 	</tr>
 	
 	<% }} %>

@@ -1,3 +1,8 @@
+body{
+	
+	background-color: #f4f7f7;
+}
+
 form{
 	
 	width: 500px;
@@ -11,35 +16,80 @@ form input{
 
 
 .fundoNavBar{
-    background-color: rgb(255, 248, 253) ;
+    background-color: #009ba8;
 }
 
-.card2 h3,
-.card2{
-width: 500px;
-margin: 20px auto;
+.nav-link,
+.nav-link:hover{
+	
+	color: #ffffff;
+	
+}
+
+.navbar-brand{
+	
+	color: #ffffff;
+}
+
+
+.noticiashoje{
 text-align: center;
+margin-top: 30px;
+margin-bottom: 30px;
+color: #00666f;
 
 }
 
-.card1 h3,
 .card1{
 	
 	width: 500px;
 	margin: 20px auto;
 	text-align: center;
+	background-color: #d1e6eb;
+}
+
+.card2{
+	
+	width: 500px;
+	margin: 20px auto;
+	text-align: center;
+	background-color: #d1e6eb;
 	
 }
 
-.card1 h2{
-
-	color: #014040;
+.teste{
 	
+	color: #009ba8;
+}
+
+.pesquisa{
+	
+	text-align: center;
+	margin-top: 30px;
+}
+
+.btn{
+	
+	background-color: #00474d;
+	border-color: #00747C;
+	color: #ffffff;
 	
 }
 
+.inputType.placeholder{
+	
+	background-color: #f4f7f7;
+	
+}
 
-
+.cadastre{
+	
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: #00666f;
+	
+}
 
 
 

@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="paginaInicial.jsp">Inicio</a>
+          <a class="nav-link" aria-current="page" href="paginaInicial.jsp">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.jsp">Gerência</a>
@@ -38,26 +38,9 @@
   </div>
 </nav>
 
-<p>Resultado da sua pesquisa</p>
+<div class="pesquisa"><h4>Resultado da sua pesquisa:</h4></div>
 
 <%
-	int permissao = 0;
-	String session_u_name = (String)session.getAttribute("user");
-	String[] dados = null;
-	boolean estaLogado = false;
-	if(session_u_name != null)
-{
-	dados = session_u_name.split(",");
-	permissao = Integer.parseInt(dados[1]);                  
-   estaLogado = true;
-}
-
-	if(permissao == 0){
-   response.sendRedirect("telaLogin.jsp");
-	}
-	else
-{
-
 
 		//Obter o codigo da pessoa
 		String resultadoPesquisa = request.getParameter("pesquisar");
@@ -88,7 +71,7 @@
 	<input type="text" placeholder="Conteudo" value="<% out.print(conteudo); %>" name="conteudo" id="conteudo" class="form-control">
 </form>
 
-<%}} %>
+<%} %>
 
 
 </body>

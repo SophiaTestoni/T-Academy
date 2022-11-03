@@ -33,9 +33,7 @@ function validaComentario(){
 		return false;
 		
 	}
-		
 		return true;
-	
 }
 
 	

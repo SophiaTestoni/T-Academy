@@ -26,12 +26,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="paginaInicial.jsp">Inicio</a>
+          <a class="nav-link" aria-current="page" href="paginaInicial.jsp">Inicio</a>
         </li>
-        
-        
-        
-        
         
         <% 
            boolean estaLogado = false;
@@ -69,11 +65,8 @@
         	<li class="nav-item">    
           <a class="nav-link" href="logout.jsp">Logout</a>
         </li>
-       <% }
-   	%>         
+       <% }	%>         
        </ul>
-       
-      
        
        
       <form class="d-flex" role="search" action="pesquisarPostagem.jsp">
@@ -84,10 +77,7 @@
   </div>
 </nav>
 
-<div class="card card2">
-      <h3>Notícias de hoje</h3>
-        <div class="row"></div>
-    </div>
+<div class="noticiashoje"><h3>Notícias de hoje</h3></div>
     <div class="row">
     
     <%
@@ -109,7 +99,7 @@
 	%>
 	
 	<div class="card card1">
-	  <h2><a href="noticias.jsp?id=<%out.print(id);%>"><% out.print(titulo);%></a></h2>
+	  <h2><a class="teste" href="noticias.jsp?id=<%out.print(id);%>"><% out.print(titulo);%></a></h2>
 	  <h5><% out.print(subtitulo);%></h5>
 	  <!-- trocar substring pro numero de caracteres que desejamos mostrar no preview da noticia -->
 	   <p><% out.print(conteudo.substring(0,15)); %> <a href="noticias.jsp?id=<%out.print(id);%>">ver mais...</a> </p>
