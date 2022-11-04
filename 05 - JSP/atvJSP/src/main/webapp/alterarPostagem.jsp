@@ -10,7 +10,22 @@
 </head>
 <body>
 
-<%		
+<%
+	int permissao = 0;
+	String session_u_name = (String)session.getAttribute("user");
+	String[] dados = null;
+	boolean estaLogado = false;
+	if(session_u_name != null)
+{
+	dados = session_u_name.split(",");
+	permissao = Integer.parseInt(dados[1]);                  
+	estaLogado = true;
+}
+
+	if(permissao == 0){
+	response.sendError(401, "Você precisa ser um administrador para realizar esta ação.");
+}
+	else{
 		
 		int codigo = Integer.parseInt(request.getParameter("codigo"));
 		String titulo = request.getParameter("titulo");
@@ -30,11 +45,11 @@
 		pstmt.setString(3,conteudo);
 		pstmt.setInt(4,codigo);
 		
-		//Executar a alteração
 		pstmt.execute();
 		
 		
 		response.sendRedirect("index.jsp");
+}
 	%>
  
 

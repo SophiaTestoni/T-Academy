@@ -26,9 +26,6 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="paginaInicial.jsp">Inicio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.jsp">Gerência</a>
-        </li>
        </ul>
       <form class="d-flex" role="search" action="pesquisarPostagem.jsp">
         <input class="form-control me-2" name="pesquisar" type="search" placeholder="Search" aria-label="Search">
@@ -42,20 +39,18 @@
 
 <%
 
-		//Obter o codigo da pessoa
 		String resultadoPesquisa = request.getParameter("pesquisar");
 
-		//Efetuar a conexao
+	
 		Conexao c = new Conexao();
 
-		// Comando SQL
+	
 		String sql = "SELECT * FROM postagens WHERE titulo LIKE ?";
 
-		//PreparedStatement
+
 		PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 		pstmt.setString(1,"%" + resultadoPesquisa + "%");
 
-		//Executar a remoção
 		ResultSet result = pstmt.executeQuery();
 		
 		while(result.next()){
@@ -65,11 +60,11 @@
 
 %>
 
-<form method="post" onsubmit="return validaPostagem()">
-	<input type="text" placeholder="Título" value="<% out.print(titulo); %>" name="titulo" id="titulo" class="form-control">
-	<input type="text" placeholder="Subtitulo" value="<% out.print(subtitulo); %>" name="subtitulo" id="subtitulo" class="form-control">
-	<input type="text" placeholder="Conteudo" value="<% out.print(conteudo); %>" name="conteudo" id="conteudo" class="form-control">
-</form>
+	<div class="card card2">
+	  <h2 class="tit"><% out.print(titulo);%></h2>
+	  <h5 class="sub"><% out.print(subtitulo);%></h5>
+	   <p class="cont"><% out.print(conteudo);%> </p>
+	</div>
 
 <%} %>
 

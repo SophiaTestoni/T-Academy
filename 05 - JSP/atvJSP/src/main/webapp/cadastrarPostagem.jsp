@@ -12,7 +12,22 @@
 <body>
 
 <%
-		//Obter titulo e subtitulo
+	int permissao = 0;
+	String session_u_name = (String)session.getAttribute("user");
+	String[] dados = null;
+	boolean estaLogado = false;
+	if(session_u_name != null)
+{
+	dados = session_u_name.split(",");
+	permissao = Integer.parseInt(dados[1]);                  
+	estaLogado = true;
+}
+
+	if(permissao == 0){
+	response.sendError(401, "Você precisa ser um administrador para realizar esta ação.");
+}
+	else{
+		
 		String titulo = request.getParameter("titulo");
 		String subtitulo = request.getParameter("subtitulo");
 		String conteudo = request.getParameter("conteudo");
@@ -39,6 +54,7 @@
 				
 		//Redirecionamento - como se fosse um href
 		response.sendRedirect("index.jsp");
+}
 				
 %>
 

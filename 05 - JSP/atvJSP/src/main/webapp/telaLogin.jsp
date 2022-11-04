@@ -15,7 +15,7 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
 
-    <!-- Login Form -->
+    
     <form method="post" action="login.jsp">
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login">
       <input type="text" id="password" class="fadeIn third" name="password" placeholder="Digite sua senha">

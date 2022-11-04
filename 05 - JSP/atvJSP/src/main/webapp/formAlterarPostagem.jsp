@@ -54,7 +54,7 @@
    }
    
    if(permissao == 0){
-	   response.sendRedirect("telaLogin.jsp");
+	   response.sendError(401, "Você precisa ser um administrador para realizar esta ação.");
    }
    else
    {

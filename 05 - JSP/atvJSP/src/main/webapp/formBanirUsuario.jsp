@@ -13,45 +13,42 @@
 
 <%
 
-int permissao = 0;
-String session_u_name = (String)session.getAttribute("user");
-String[] dados = null;
-boolean estaLogado = false;
-if(session_u_name != null)
+	int permissao = 0;
+	String session_u_name = (String)session.getAttribute("user");
+	String[] dados = null;
+	boolean estaLogado = false;
+	if(session_u_name != null)
 {
-dados = session_u_name.split(",");
-permissao = Integer.parseInt(dados[1]);                  
+	dados = session_u_name.split(",");
+	permissao = Integer.parseInt(dados[1]);                  
    estaLogado = true;
 }
 
-if(permissao == 0){
-   response.sendRedirect("telaLogin.jsp");
+	if(permissao == 0){
+	response.sendError(401, "Você precisa ser um administrador para realizar esta ação.");
 }
-else
-{
+	else{
 
-int codigo = Integer.parseInt(request.getParameter("codigo"));
+		int codigo = Integer.parseInt(request.getParameter("codigo"));
 
-// efetuar a conexão
-Conexao c = new Conexao();
 
-// SQL - Não concatena por segurança e performance, será passado o parâmetro conforme linha 32
-String sql = "UPDATE usuarios SET ATIVO = 0 WHERE codigo = ?";
+		Conexao c = new Conexao();
+
+		String sql = "UPDATE usuarios SET ATIVO = 0 WHERE codigo = ?";
 		
-//PreparedStatement	-     vai fazer a conexao com o banco e o que ele precisa fazer
-PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
-		
-//Passar os parametros do SQL - aqui começa com 1 pq começa com 1 no banco de dados
-pstmt.setInt(1, codigo);
 
-//Executar o comando SQL
-pstmt.execute();
+		PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 		
-//Redirecionamento - como se fosse um href
-response.sendRedirect("indexUsuario.jsp");
+		pstmt.setInt(1, codigo);
+
+
+		pstmt.execute();
+		
+
+		response.sendRedirect("indexUsuario.jsp");
 
 %>
 
-<%} %>
+<% } %>
 </body>
 </html>

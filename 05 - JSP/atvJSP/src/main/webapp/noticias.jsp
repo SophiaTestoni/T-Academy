@@ -29,9 +29,6 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="paginaInicial.jsp">Inicio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.jsp">Gerência</a>
-        </li>
        </ul>
       <form class="d-flex" role="search" action="pesquisarPostagem.jsp">
         <input class="form-control me-2" name="pesquisar" type="search" placeholder="Search" aria-label="Search">
@@ -42,17 +39,15 @@
 </nav>
 
 		<% 
-
 		
 		int codigo = Integer.parseInt(request.getParameter("id"));
 
-		//Efetuar a conexao
 		Conexao c = new Conexao();
 		
-		// Comando SQL
+	
 		String sql = "select * from postagens WHERE codigo = ?";
 		
-		//PreparedStatement
+		
 		PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 		pstmt.setInt(1,codigo);
 			
@@ -90,16 +85,13 @@
 		
 	  	Statement stmt = c.efetuarConexao().createStatement();
 		
-		// Obter dados da tabela - comando específico do Java para dados do db como se fosse um ArrayList
 		ResultSet result = stmt.executeQuery(sql);
-		
-		//Laço de repetição - rs.next vai fazer linha a linha até não ter mais
-		// Abrindo as chaves e fechando após o TR para ele pegar a estrutura que montamos
+	
 		while(result.next()){
 		
 	%>
-	<div class="card">
-	  <h5><% out.print(result.getString(1));%></h5>
+	<div class="card card2">
+	  <h5><% out.print(result.getString(1));%> </h5>
 	   <p><% out.print(result.getString(2)); %> </p>
 	</div>
 	

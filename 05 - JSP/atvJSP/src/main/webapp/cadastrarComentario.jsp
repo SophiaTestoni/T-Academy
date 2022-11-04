@@ -35,25 +35,24 @@
 		//exibir dados
 		out.print(email + "<br>" + mensagem);  
 		
-		// efetuar a conexão
+	
 		Conexao c = new Conexao();
 		
-		// SQL - Não concatena por segurança e performance, será passado o parâmetro conforme linha 30
+	
 		String sql = "INSERT INTO comentarios (nome, mensagem, codigo_noticia, ativo) VALUES (?,?,?,?)";
 				
-		//PreparedStatement	-     vai fazer a conexao com o banco e o que ele precisa fazer
+	
 		PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
-				
-		//Passar os parametros do SQL - aqui começa com 1 pq começa com 1 no banco de dados
+	
 		pstmt.setString(1, email);
 		pstmt.setString(2, mensagem);
 		pstmt.setInt(3,noticiaID);
 		pstmt.setInt(4,0);
 					
-		//Executar o comando SQL
+	
 		pstmt.execute();
 				
-		//Redirecionamento - como se fosse um href
+
 		response.sendRedirect("noticias.jsp?id="+noticiaID);
    }
 %>

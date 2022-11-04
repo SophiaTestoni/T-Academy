@@ -47,13 +47,13 @@
       
        <% if(permissao == 1){ %>
          <li class="nav-item">    
-          <a class="nav-link" href="index.jsp">Gerir Notícias</a>
+          <a class="nav-link" href="index.jsp">Notícias</a>
         </li>
         <li class="nav-item">    
-          <a class="nav-link" href="indexComentario.jsp">Gerir Comentários</a>
+          <a class="nav-link" href="indexComentario.jsp">Comentários</a>
         </li>
         <li class="nav-item">    
-          <a class="nav-link" href="indexUsuario.jsp">Gerir Usuários</a>
+          <a class="nav-link" href="indexUsuario.jsp">Usuários</a>
         </li>
         <%} %>
       
@@ -104,7 +104,6 @@
 	<div class="card card1">
 	  <h4><a class="titulo" href="noticias.jsp?id=<%out.print(id);%>"><% out.print(titulo);%></a></h4>
 	  <h6><% out.print(subtitulo);%></h6>
-	  <!-- trocar substring pro numero de caracteres que desejamos mostrar no preview da noticia -->
 	   <p><% out.print(conteudo.substring(0,25)); %> <a href="noticias.jsp?id=<%out.print(id);%>">ver mais...</a> </p>
 	</div>
 	

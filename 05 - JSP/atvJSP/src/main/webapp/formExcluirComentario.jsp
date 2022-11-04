@@ -13,27 +13,43 @@
 <body>
 
 <%
-int codigo = Integer.parseInt(request.getParameter("codigo"));
+	int permissao = 0;
+	String session_u_name = (String)session.getAttribute("user");
+	String[] dados = null;
+	boolean estaLogado = false;
+	if(session_u_name != null)
+{
+	dados = session_u_name.split(",");
+	permissao = Integer.parseInt(dados[1]);                  
+    estaLogado = true;
+}
 
-//efetuar a conexão
-Conexao c = new Conexao();
-
-//SQL - Não concatena por segurança e performance, será passado o parâmetro conforme linha 32
-String sql = "DELETE FROM comentarios WHERE CODIGO_COMENTARIO = ?";
+	if(permissao == 0){
+	response.sendError(401, "Você precisa ser um administrador para realizar esta ação.");
+}
+	else{
 		
-//PreparedStatement	-     vai fazer a conexao com o banco e o que ele precisa fazer
-PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
+		int codigo = Integer.parseInt(request.getParameter("codigo"));
+
+		Conexao c = new Conexao();
+
+
+		String sql = "DELETE FROM comentarios WHERE CODIGO_COMENTARIO = ?";
 		
-//Passar os parametros do SQL - aqui começa com 1 pq começa com 1 no banco de dados
-pstmt.setInt(1, codigo);
 
-//Executar o comando SQL
-pstmt.execute();
+		PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
 		
-//Redirecionamento - como se fosse um href
-response.sendRedirect("indexComentario.jsp");
+
+		pstmt.setInt(1, codigo);
 
 
+		pstmt.execute();
+		
+
+		response.sendRedirect("indexComentario.jsp");
+
+}
+	
 %>
 
 </body>

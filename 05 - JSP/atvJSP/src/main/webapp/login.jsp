@@ -16,30 +16,28 @@
 
 <%
 
-String login  = request.getParameter("login");
-String password = request.getParameter("password");
+	String login  = request.getParameter("login");
+	String password = request.getParameter("password");
 
-//Efetuar a conexao
-Conexao c = new Conexao();
+	Conexao c = new Conexao();
 
-// Comando SQL
-String sql = "SELECT permissao, codigo FROM usuarios WHERE email = ? and senha = ? and ativo = 1";
 
-//PreparedStatement
-PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
-pstmt.setString(1,login);
-pstmt.setString(2,password);
+	String sql = "SELECT permissao, codigo FROM usuarios WHERE email = ? and senha = ? and ativo = 1";
 
-//Executar a remoção
-ResultSet result = pstmt.executeQuery();
 
-boolean loginFuncionou = result.next();
- if(!loginFuncionou)
+	PreparedStatement pstmt = c.efetuarConexao().prepareStatement(sql);
+	pstmt.setString(1,login);
+	pstmt.setString(2,password);
+
+
+	ResultSet result = pstmt.executeQuery();
+
+	boolean loginFuncionou = result.next();
+ 	if(!loginFuncionou)
  {
 	 response.sendRedirect("telaLogin.jsp"); 
  }
- else
- {
+ 	else{
 	Usuario user = new Usuario();
     user.setEmail(login);
     user.setPermissao(result.getInt(1));
@@ -49,8 +47,6 @@ boolean loginFuncionou = result.next();
  }
  
  %>
-
-
 
 </body>
 </html>

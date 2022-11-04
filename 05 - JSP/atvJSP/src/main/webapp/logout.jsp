@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% session.removeAttribute("user");
-   response.sendRedirect("paginaInicial.jsp");%>
+<% 
+   session.removeAttribute("user");
+   response.sendRedirect("paginaInicial.jsp");
+%>
 </body>
 </html>

@@ -29,9 +29,6 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="paginaInicial.jsp">Inicio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.jsp">Gerência</a>
-        </li>
        </ul>
       <form class="d-flex" role="search" action="pesquisarPostagem.jsp">
         <input class="form-control me-2" name="pesquisar" type="search" placeholder="Search" aria-label="Search">
@@ -40,6 +37,9 @@
     </div>
   </div>
 </nav>
+
+<div class="cadastroAlt"><h4>Altere seu e-mail ou sua senha:</h4></div>
+
 
 <!-- ESTRUTURA DA ALTERAÇÃO DE CADASTRO -->
 
@@ -78,7 +78,6 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
 
-    <!-- Login Form -->
     <form method="post" action="alterarCadastro.jsp">
       <input type="text" id="login" value="<% out.print(rs.getString(2)); %>" class="fadeIn second" name="login" placeholder="Login">
       <input type="text" id="password" value="<% out.print(rs.getString(3)); %>" class="fadeIn third" name="password" placeholder="Digite sua senha">
