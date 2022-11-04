@@ -1,3 +1,4 @@
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="atvJSP.Conexao"%>
@@ -65,8 +66,10 @@
 	  <h5 class="sub"><% out.print(subtitulo);%></h5>
 	   <p class="cont"><% out.print(conteudo);%> </p>
 	</div>
+	
+	
 
-<%} %>
+<% }  %>
 
 
 </body>

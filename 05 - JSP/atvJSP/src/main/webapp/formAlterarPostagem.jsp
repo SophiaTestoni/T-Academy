@@ -42,22 +42,23 @@
 </nav>
 
 <% 
+
 	int permissao = 0;
 	String session_u_name = (String)session.getAttribute("user");
 	String[] dados = null;
 	boolean estaLogado = false;
-   if(session_u_name != null)
-   {
-    dados = session_u_name.split(",");
-    permissao = Integer.parseInt(dados[1]);                  
-	   estaLogado = true;
-   }
-   
-   if(permissao == 0){
-	   response.sendError(401, "Você precisa ser um administrador para realizar esta ação.");
-   }
-   else
-   {
+	if(session_u_name != null)
+{
+	dados = session_u_name.split(",");
+	permissao = Integer.parseInt(dados[1]);                  
+	estaLogado = true;
+}
+
+	if(permissao == 0){
+	response.sendError(401, "Você precisa ser um administrador para realizar esta ação.");
+}
+	else{
+	
 	int codigo = Integer.parseInt(request.getParameter("codigo"));
 	
 	Conexao c = new Conexao();
@@ -79,14 +80,16 @@
 	}
 %>
 
-<form action="alterarCadastro.jsp" method="post" onsubmit="return validaPostagem()">
+<form action="alterarPostagem.jsp" method="post" onsubmit="return validaPostagem()">
 	<input type="text" placeholder="Título" value="<% out.print(titulo); %>" name="titulo" id="titulo" class="form-control">
 	<input type="text" placeholder="Subtitulo" value="<% out.print(subtitulo); %>" name="subtitulo" id="subtitulo" class="form-control">
 	<input type="text" placeholder="Conteudo" value="<% out.print(conteudo); %>" name="conteudo" id="conteudo" class="form-control">
 	<input type="hidden" name="codigo" value="<% out.print(codigo); %>">
 	<input type="submit" value="Alterar" class="btn btn-success">
 </form>
+
 <%} %>
+
 
 </body>
 </html>
