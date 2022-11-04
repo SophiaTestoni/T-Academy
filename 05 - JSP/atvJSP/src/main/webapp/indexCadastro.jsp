@@ -79,8 +79,8 @@
   <div id="formContent">
 
     <form method="post" action="alterarCadastro.jsp">
-      <input type="text" id="login" value="<% out.print(rs.getString(2)); %>" class="fadeIn second" name="login" placeholder="Login">
-      <input type="text" id="password" value="<% out.print(rs.getString(3)); %>" class="fadeIn third" name="password" placeholder="Digite sua senha">
+      <input type="text"  minlength=5 maxlength=60 id="login" value="<% out.print(rs.getString(2)); %>" class="fadeIn second" name="login" placeholder="Login">
+      <input type="text" minlength=5 maxlength=20 id="password" value="<% out.print(rs.getString(3)); %>" class="fadeIn third" name="password" placeholder="Digite sua senha">
       <input type="hidden" name="codigo" value="<% out.print(rs.getString(1)); %>">
 	<input type="submit" value="Alterar" class="btn btn-success">
 

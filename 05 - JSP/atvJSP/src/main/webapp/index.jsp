@@ -40,9 +40,9 @@
 <!-- ESTRUTURA DAS POSTAGENS -->
 
 <form action="cadastrarPostagem.jsp" method="post" onsubmit="return validaPostagem()">
-	<input type="text" placeholder="Título" name="titulo" id="titulo" class="form-control">
-	<input type="text" placeholder="Subtitulo" name="subtitulo" id="subtitulo" class="form-control">
-	<input type="text" placeholder="Notícia" name="conteudo" id="conteudo" class="form-control">
+	<input type="text" minlength=5 maxlength=90 placeholder="Título" name="titulo" id="titulo" class="form-control">
+	<input type="text" minlength=5 maxlength=90 placeholder="Subtitulo" name="subtitulo" id="subtitulo" class="form-control">
+	<input type="text" minlength=5 placeholder="Notícia" name="conteudo" id="conteudo" class="form-control">
 	<input type="submit" value="Cadastrar" class="btn btn-primary">
 </form>
 
