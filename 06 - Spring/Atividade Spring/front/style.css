@@ -1,0 +1,13 @@
+form {
+    width: 500px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+form input {
+    margin-top: 15px;
+}
+
+#btnAlterar, #btnRemover {
+    display: none;
+}

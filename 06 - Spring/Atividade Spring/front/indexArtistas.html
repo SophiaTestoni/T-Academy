@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD - Spring</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="estilos.css">
-    <!-- JS -->
-    <script src="script.js"></script>
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
+    <title>Index Artistas</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="script.js"></script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-     <!-- Formulário -->
-     <form action="">
-        <input type="hidden" id="codigo">
-        <input type="text" id="nome" placeholder="Nome do produto" class="form-control">
-        <input type="number" id="valor" placeholder="Valor do produto" class="form-control">
+    <!-- Formulário -->
+    <form action="">
+        <input type="hidden" id="id">
+        <input type="text" id="artista" placeholder="Nome do artista" class="form-control">
 
         <input type="button" value="Cadastrar" onclick="cadastrar()" id="btnCadastrar" class="btn btn-primary">
         <input type="button" value="Alterar"   onclick="alterar()" id="btnAlterar" class="btn btn-warning">
@@ -32,12 +27,11 @@
         <thead>
             <tr>
                 <th>Código</th>
-                <th>Nome</th>
-                <th>Valor</th>
+                <th>Artista</th>
                 <th>Selecionar</th>
             </tr>
         </thead>
-        <tbody id="tabela">
+        <tbody id="tabelaArtistas">
 
         </tbody>
     </table>
