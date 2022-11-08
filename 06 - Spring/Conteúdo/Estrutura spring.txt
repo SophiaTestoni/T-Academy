@@ -1,0 +1,5 @@
+Repositório > Repository / extends CrudRepository <modelo, long/integer
+
+Modelo > Entity/Table > id, GeneratedValue(strategy = GenerationType.IDENTITY)
+
+Controle> RestController/RequestMapping ---- Autowired ((repositorio)) acao >>> PostMapping/Get/Delete

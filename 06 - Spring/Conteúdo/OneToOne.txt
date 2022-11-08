@@ -1,0 +1,16 @@
+OneToOne = Um colaborador vai ter um cargo - então todo colaborador estará ligado a um cargo
+Eu só posso cadastrar um codigo cargo se esse codigo estiver na tabela de cargos
+
+OneToMany = uma postagem pode ter vários comentários 
+
+ManyToOne - mesma lógica do 1 to many
+
+ManyToMany - um aluno pode fazer vários cursos e o curso pode ter vários alunos
+O spring cria uma tabela auxiliar
+
+Se eu fizer o ManyToMany por exemplo de alunos e cursos e chamar na tabela de alunos, a tabel auxiliar vai se chamar alunos_cursos aonde o primeiro codigo é do aluno e o segundo é do curso.
+Se fizer ao contrário, inverte esses valores.
+Nos controles cria-se a três controles.
+Um para alunos (alunoControle), outro para cursos (cursoControle) e uma terceira para manipular os codigos da tabela auxiliar.
+
+
