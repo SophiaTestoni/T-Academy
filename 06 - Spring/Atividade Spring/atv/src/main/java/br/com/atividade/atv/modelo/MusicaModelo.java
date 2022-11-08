@@ -13,7 +13,6 @@ public class MusicaModelo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String musica;
-    private String artista;
     private String link;
 
     public long getId() {
@@ -32,14 +31,6 @@ public class MusicaModelo {
         this.musica = musica;
     }
 
-    public String getArtista() {
-        return this.artista;
-    }
-
-    public void setArtista(String artista) {
-        this.artista = artista;
-    }
-
     public String getLink() {
         return this.link;
     }
@@ -47,5 +38,4 @@ public class MusicaModelo {
     public void setLink(String link) {
         this.link = link;
     }
-    
 }

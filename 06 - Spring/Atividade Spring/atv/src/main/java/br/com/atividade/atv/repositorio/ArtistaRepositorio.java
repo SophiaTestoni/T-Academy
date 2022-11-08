@@ -7,5 +7,7 @@ import br.com.atividade.atv.modelo.ArtistaModelo;
 
 @Repository
 public interface ArtistaRepositorio extends CrudRepository<ArtistaModelo, Long> {
+
+    ArtistaModelo findById(long id);
     
 }
