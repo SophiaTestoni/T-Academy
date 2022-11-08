@@ -1,5 +1,9 @@
 //Vetor de produtos
+<<<<<<< HEAD
 let vetor = [];
+=======
+let ve
+>>>>>>> e19cf8820eac05403c83506917e531487627a0a0
 
 // Ao carregar a página HTML
 window.onload = function(){
