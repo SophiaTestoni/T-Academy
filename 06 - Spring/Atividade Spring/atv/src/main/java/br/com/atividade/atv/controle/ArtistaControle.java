@@ -64,7 +64,7 @@ public class ArtistaControle {
         return acao.findByArtistaContaining(artista);
     }
 
-    //UPDATE DE MÚSICAS
+    //UPDATE DE MÚSICAS (incluir música para o artista)
     @PutMapping("/{id_artista}")
     public ArtistaModelo alterar(@PathVariable long id_artista, @RequestBody MusicaModelo obj){
         ArtistaModelo am = acao.findById(id_artista);

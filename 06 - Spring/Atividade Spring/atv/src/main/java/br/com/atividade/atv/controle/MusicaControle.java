@@ -34,13 +34,13 @@ public class MusicaControle {
         return acao.findAll();
     }
 
-     //FILTRAR POR ID
+     //FILTRAR POR ID DA MÚSICA
     @GetMapping("/{id}") // FILTRO - COMO UM WHERE
     public MusicaModelo filtrar(@PathVariable long id){
         return acao.findById(id);
     }
 
-    // DELETE
+    // DELETE DE MÚSICA
     @DeleteMapping("/{id}")
     public void remover(@PathVariable long id){
         acao.deleteById(id);
@@ -57,5 +57,4 @@ public class MusicaControle {
     public Iterable<MusicaModelo> pesquisa(@PathVariable String musica){
         return acao.findByMusicaContaining(musica);
     }
-    
 }
