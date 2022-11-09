@@ -7,5 +7,9 @@ import br.com.atividade.atv.modelo.MusicaModelo;
 
 @Repository
 public interface MusicaRepositorio extends CrudRepository<MusicaModelo, Long>{
+
+    MusicaModelo findById(long id);
+
+    Iterable<MusicaModelo>findByMusicaContaining(String musica);
     
 }

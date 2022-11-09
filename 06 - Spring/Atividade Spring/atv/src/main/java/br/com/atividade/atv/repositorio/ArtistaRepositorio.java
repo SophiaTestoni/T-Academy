@@ -9,5 +9,7 @@ import br.com.atividade.atv.modelo.ArtistaModelo;
 public interface ArtistaRepositorio extends CrudRepository<ArtistaModelo, Long> {
 
     ArtistaModelo findById(long id);
+
+    Iterable<ArtistaModelo>findByArtistaContaining(String artista);
     
 }

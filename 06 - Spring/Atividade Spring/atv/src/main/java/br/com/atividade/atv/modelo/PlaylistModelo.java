@@ -1,5 +1,6 @@
 package br.com.atividade.atv.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -7,24 +8,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "artistas")
-public class ArtistaModelo {
+@Table(name = "playlists")
+public class PlaylistModelo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String artista;
+    private String playlist;
 
-    @OneToMany
-    @JoinColumn(name = "id_artista")
-    //Agora, dentro da table de musicas possui uma coluna de id_artista
-    //ligando o artista à musica.
-    private List<MusicaModelo> musicas;
-
+    @ManyToMany
+    @JoinTable(
+        name = "playlists_musicas", 
+        joinColumns = {@JoinColumn(name = "codigo_playlist", referencedColumnName = "id")}, 
+        inverseJoinColumns = {@JoinColumn(name = "codigo_musica", referencedColumnName = "id")}
+    )
+    private List<MusicaModelo> musicas = new ArrayList<>();
 
     public long getId() {
         return this.id;
@@ -34,12 +37,12 @@ public class ArtistaModelo {
         this.id = id;
     }
 
-    public String getArtista() {
-        return this.artista;
+    public String getPlaylist() {
+        return this.playlist;
     }
 
-    public void setArtista(String artista) {
-        this.artista = artista;
+    public void setPlaylist(String playlist) {
+        this.playlist = playlist;
     }
 
     public List<MusicaModelo> getMusicas() {
@@ -49,5 +52,5 @@ public class ArtistaModelo {
     public void setMusicas(List<MusicaModelo> musicas) {
         this.musicas = musicas;
     }
-   
+    
 }

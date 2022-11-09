@@ -29,7 +29,7 @@ public class ArtistaControle {
     public ArtistaModelo cadastrar(@RequestBody ArtistaModelo obj){
         return acao.save(obj);
     }
-    //MOSTRAR TODOS
+    //LISTAR TODAS OS ARTISTAS
     @GetMapping("")
     public Iterable<ArtistaModelo> selecionar(){
         return acao.findAll();
@@ -41,6 +41,29 @@ public class ArtistaControle {
         return acao.findById(id);
     }
 
+    // DELETE -- COM VALIDAÇÃO, NÃO SENDO POSSÍVEL EXCLUIR SE TIVER MÚSICA VINCULADA
+    @DeleteMapping("/{id}")
+    public void remover(@PathVariable long id){
+        ArtistaModelo am = acao.findById(id);
+        if(am.getMusicas().size() == 0){
+            acao.deleteById(id);
+        }else{
+            throw new IllegalArgumentException("Há música(s) vinculada(s) nesse artista");
+    }
+}
+
+    // ALTERA O NOME DO ARTISTA
+    @PutMapping("")
+    public ArtistaModelo alterar(@RequestBody ArtistaModelo obj){
+        return acao.save(obj);
+    }
+
+    //PESQUISA POR NOME DO ARTISTA
+    @GetMapping("/pesquisa/{artista}")
+    public Iterable<ArtistaModelo> pesquisa(@PathVariable String artista){
+        return acao.findByArtistaContaining(artista);
+    }
+
     //UPDATE DE MÚSICAS
     @PutMapping("/{id_artista}")
     public ArtistaModelo alterar(@PathVariable long id_artista, @RequestBody MusicaModelo obj){
@@ -49,17 +72,4 @@ public class ArtistaControle {
         acao.save(am);
         return am;
     }
-
-    // DELETE -- FAZER VALIDAÇÃO NO FRONT PARA NAO DELETAR ARTISTA VINCULADO A MUSICAS
-    @DeleteMapping("/{id}")
-    public void remover(@PathVariable long id){
-        acao.deleteById(id);
-    }
-
-    // ATUALIZA
-    @PutMapping("")
-    public ArtistaModelo alterar(@RequestBody ArtistaModelo obj){
-        return acao.save(obj);
-    }
-
 }

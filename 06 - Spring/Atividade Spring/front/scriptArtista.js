@@ -167,3 +167,4 @@ function formularioPadrao() {
     document.getElementById("btnAlterar").style.display = "none";
     document.getElementById("btnRemover").style.display = "none";
 }
+
