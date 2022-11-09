@@ -1,41 +1,38 @@
-//Vetor de produtos
-let ve
+// Vetor de produtos
+let vetor = [];
 
 // Ao carregar a página HTML
 window.onload = function(){
-
-    //Armazenar os produtos no vetor
+    // Armazenar os produtos no vetor e listar
     obterProdutos();
-
-  
 }
 
 // Obter todos os produtos
 function obterProdutos(){
+
     fetch("http://localhost:8080")
     .then(retorno => retorno.json())
     .then(produtos => vetor = produtos)
     .then(() => listarProdutos());
 
-    // O erro de CORS foi corrigido no back-end com o @CrossOrigin(origins = "*" no ProdutoControle
-    //Desse jeito com o * ele aceita entrar em qlqr porta (incluindo a 8080).
 }
 
 // Listar os produtos do vetor na tabela
 function listarProdutos(){
-    // Obter elemento de tabela (id)
+
+    // Obter a tabela
     let tabela = document.getElementById("tabela");
 
     // Limpar conteúdos da tabela
     tabela.innerHTML = "";
 
     // Laço de repetição
-    for (let i = 0; i < vetor.length; i++) {
+    for(let i=0; i<vetor.length; i++){
 
-        //criar linha
+        // Criar linha
         let linha = tabela.insertRow(-1);
 
-        //Criar colunas
+        // Criar as colunas
         let colunaCodigo = linha.insertCell(0);
         let colunaNome = linha.insertCell(1);
         let colunaValor = linha.insertCell(2);
@@ -45,153 +42,158 @@ function listarProdutos(){
         colunaCodigo.innerText = vetor[i].codigo;
         colunaNome.innerText = vetor[i].nome;
         colunaValor.innerText = vetor[i].valor;
-        colunaSelecionar.innerHTML = `<button class="btn btn-success">Selecionar</button>`;
+        colunaSelecionar.innerHTML = `<button onclick="selecionar(${vetor[i].codigo})" class="btn btn-success">Selecionar</button>`;
+
     }
 
+}
 
-    //cadastrar produtos
-function cadastrar() {
-    // capturar o nome do produto e valor
+// Cadastrar produtos
+function cadastrar(){
+    // Capturar o nome do produto e o valor
     let nome = document.getElementById("nome").value;
     let valor = parseInt(document.getElementById("valor").value);
 
-    // validacoes
-    if(nome.length < 5) {
+    // Validações
+    if(nome.length < 5){
         alert("O nome do produto deve possuir pelo menos 5 caracteres.");
-    } else if(valor <= 0) {
-        alert("Inform um valor válido.");
-    } else if(isNaN(valor)) {
-        alert("Inform um valor.");
-    } else {
+    }else if(isNaN(valor)){
+        alert("Informe um valor.");
+    }else if(valor <= 0){
+        alert("Informe um valor válido.");
+    }else{
         let obj = {
-            "nome": nome,
-            "valor": valor
+            "nome":nome,
+            "valor":valor
         }
 
-        fetch("http://localhost:8080", {
-            method: "POST",
-            headers: {
+        fetch("http://localhost:8080",{
+            method:"POST",
+            headers:{
                 "accept":"application/json",
                 "content-type":"application/json"
             },
-            body: JSON.stringify(obj)
+            body:JSON.stringify(obj)
         })
         .then(retorno => retorno.json())
-        .then(retornoConvertido => {
-            vetor.push(retornoConvertido);
-            listarProdutos();
-        });
-    }
-}
-
-// selecionar produto
-function selecionar(codigo) {
-    fetch(`http://localhost:8080/${codigo}`)
-    .then(retorno => retorno.json())
-    .then(retornoConvertido => {
-        // ocultar o botao de cadastro
-        document.getElementById("btnCadastrar").style.display="none";
-
-        // exibir botões de alteração e exclusão
-        document.getElementById("btnAlterar").style.display="inline-block";
-        document.getElementById("btnRemover").style.display="inline-block";
-
-        //preencher os inputs
-        document.getElementById("codigo").value = retornoConvertido.codigo;
-        document.getElementById("nome").value = retornoConvertido.nome;
-        document.getElementById("valor").value = retornoConvertido.valor;
-    });
-
-    // limpar formulário
-    formularioPadrao();
-}
-
-// remover produto
-function remover() {
-    let codigo = parseInt(document.getElementById("codigo").value);
-
-    // requisição na API
-    fetch(`http://localhost:8080/${codigo}`, {method:"DELETE"})
-    .then(() => {
-
-        //obter a posição do vetor referente ao produto que deverá ser removido
-        let posicaoVetor = vetor.findIndex(objLinha => {
-            return objLinha.codigo == codigo
-        });
-
-        // remover produto do vetor
-        vetor.splice(posicaoVetor, 1);
-
-        //atualizar tabela
-        listarProdutos();
-
-        // limpar formulário
-        formularioPadrao();
-    })
-
-}
-
-//alterar produtos
-function alterar() {
-    // capturar o nome do produto e valor
-    let codigo = parseInt(document.getElementById("codigo").value);
-    let nome = document.getElementById("nome").value;
-    let valor = parseInt(document.getElementById("valor").value);
-
-    // validacoes
-    if(nome.length < 5) {
-        alert("O nome do produto deve possuir pelo menos 5 caracteres.");
-    } else if(valor <= 0) {
-        alert("Inform um valor válido.");
-    } else if(isNaN(valor)) {
-        alert("Inform um valor.");
-    } else {
-        let obj = {
-            "codigo":codigo,
-            "nome": nome,
-            "valor": valor
-        }
-
-        fetch("http://localhost:8080", {
-            method: "PUT",
-            headers: {
-                "accept":"application/json",
-                "content-type":"application/json"
-            },
-            body: JSON.stringify(obj)
-        })
-        .then(retorno => retorno.json())
-        .then(retornoConvertido => {
-
-            // obter posição do vetor referente ao produto que deverá ser alterado
-            let posicaoVetor = vetor.findIndex(objLinha => {
-                return objLinha.codigo == codigo
-            });
-
-            // alterar o produto no vetor
-            vetor[posicaoVetor] = retornoConvertido;
-
-            // atualizar a tabela
-            listarProdutos();
-
-            // limpar formulário
+        .then(retorno_convertido => {
+            vetor.push(retorno_convertido);
+            listarProdutos();  
+            
+            // Limpar formulário
             formularioPadrao();
         });
     }
 }
 
-// função para limpar os campos e modificar a visibilidade dos botões
-function formularioPadrao() {
+// Selecionar produto
+function selecionar(codigo){
+    fetch(`http://localhost:8080/${codigo}`)
+    .then(retorno => retorno.json())
+    .then(retorno_convertido => {
 
-    //limpar inputs
+        // Ocultar o botão de cadastro
+        document.getElementById("btnCadastrar").style.display="none";
+
+        // Exibir os botões de alteração e exclusão
+        document.getElementById("btnAlterar").style.display = "inline-block";
+        document.getElementById("btnRemover").style.display = "inline-block";
+
+        // Preencher os inputs
+        document.getElementById("codigo").value = retorno_convertido.codigo;
+        document.getElementById("nome").value = retorno_convertido.nome;
+        document.getElementById("valor").value = retorno_convertido.valor;
+    })
+}
+
+// Remover produto
+function remover(){
+
+    // Obter o código que está no input hidden
+    let codigo = parseInt(document.getElementById("codigo").value);
+
+    // Requisição na API
+    fetch(`http://localhost:8080/${codigo}`,{method:"DELETE"})
+    .then(() => {
+        
+        // Obter a posição do vetor referente ao produto que deverá ser removido
+        let posicaoVetor = vetor.findIndex(objLinha => {
+            return objLinha.codigo == codigo
+        });
+
+        // Remover produto do vetor
+        vetor.splice(posicaoVetor, 1);
+
+        // Atualizar a tabela
+        listarProdutos();
+        
+        // Limpar formulário
+        formularioPadrao();
+
+    })
+
+}
+
+
+// Alterar produtos
+function alterar(){
+    // Capturar o nome do produto e o valor
+    let codigo = parseInt(document.getElementById("codigo").value);
+    let nome = document.getElementById("nome").value;
+    let valor = parseInt(document.getElementById("valor").value);
+
+    // Validações
+    if(nome.length < 5){
+        alert("O nome do produto deve possuir pelo menos 5 caracteres.");
+    }else if(isNaN(valor)){
+        alert("Informe um valor.");
+    }else if(valor <= 0){
+        alert("Informe um valor válido.");
+    }else{
+        let obj = {
+            "codigo":codigo,
+            "nome":nome,
+            "valor":valor
+        }
+
+        fetch("http://localhost:8080",{
+            method:"PUT",
+            headers:{
+                "accept":"application/json",
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(obj)
+        })
+        .then(retorno => retorno.json())
+        .then(retorno_convertido => {
+
+             // Obter a posição do vetor referente ao produto que deverá ser alterado
+            let posicaoVetor = vetor.findIndex(objLinha => {
+                return objLinha.codigo == codigo
+            });
+
+            // Alterar o produto no vetor
+            vetor[posicaoVetor] = retorno_convertido;
+
+            // Atualizar a tabela
+            listarProdutos();   
+
+            // Limpar formulário
+            formularioPadrao();
+        });
+    }
+}
+
+// Função para limpar os campos e modificar a visibilidade dos botoes
+function formularioPadrao(){
+
+    // Limpar os inputs
     document.getElementById("codigo").value = "";
     document.getElementById("nome").value = "";
     document.getElementById("valor").value = "";
 
-    // visibilidade botões
+    // Visibilidade dos botões
     document.getElementById("btnCadastrar").style.display = "inline-block";
-    document.getElementById("btnAlterar").style.display = "none";
-    document.getElementById("btnRemover").style.display = "none";
+    document.getElementById("btnAlterar").style.display   = "none";
+    document.getElementById("btnRemover").style.display   = "none";
 }
-}
-

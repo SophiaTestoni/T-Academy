@@ -1,5 +1,7 @@
 package br.com.atividade.atv.controle;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,6 +34,12 @@ public class MusicaControle {
     @GetMapping("")
     public Iterable<MusicaModelo> selecionar(){
         return acao.findAll();
+    }
+
+     //FILTRAR POR ID
+    @GetMapping("/{id}") // FILTRO - COMO UM WHERE
+    public Optional<MusicaModelo> filtrar(@PathVariable long id){
+        return acao.findById(id);
     }
 
     // DELETE

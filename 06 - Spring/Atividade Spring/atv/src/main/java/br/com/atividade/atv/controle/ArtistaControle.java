@@ -17,8 +17,8 @@ import br.com.atividade.atv.repositorio.ArtistaRepositorio;
 
 
 @RestController
-@RequestMapping("/artistas")
 @CrossOrigin(origins = "*")
+@RequestMapping("/artistas")
 public class ArtistaControle {
     
     @Autowired
@@ -33,6 +33,12 @@ public class ArtistaControle {
     @GetMapping("")
     public Iterable<ArtistaModelo> selecionar(){
         return acao.findAll();
+    }
+
+    //FILTRAR POR ID
+    @GetMapping("/{id}") // FILTRO - COMO UM WHERE
+    public ArtistaModelo filtrar(@PathVariable long id){
+        return acao.findById(id);
     }
 
     //UPDATE DE MÚSICAS
