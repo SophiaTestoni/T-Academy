@@ -155,17 +155,6 @@ function alterar() {
     }
 }
 
-function pesquisarArtista() {
-    fetch(`http://localhost:8080/artistas/pesquisa/${artista}`)
-    .then(retornoArtistas => retornoArtistas.json())
-    .then(retorno_convertido => {
-         // Preencher os inputs
-         document.getElementById("artista").value = retorno_convertido.artista;
-
-    })
-}
-
-
 // função para limpar os campos e modificar a visibilidade dos botões
 function formularioPadrao() {
 

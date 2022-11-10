@@ -47,7 +47,7 @@ public class MusicaControle {
     }
 
      // ALTERA O NOME DA MÚSICA
-     @PutMapping("")
+     @PutMapping("/alterarMusica")
      public MusicaModelo alterar(@RequestBody MusicaModelo obj){
          return acao.save(obj);
      }

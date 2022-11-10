@@ -40,12 +40,25 @@
               </li>
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control me-2" id="searchbar" onclick="pesquisarMusica()" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
         </div>
 </nav>
+
+<!-- Formulário -->
+<form action="">
+  <input type="hidden" id="id">
+  <input type="text" id="musica" placeholder="Nome da música" class="form-control">
+  <input type="text" id="link" placeholder="Link da música" class="form-control">
+  <input type="hidden" id="id_artista">
+  
+
+  <input type="button" value="Cadastrar" onclick="cadastrar()" id="btnCadastrar" class="btn btn-primary">
+  <input type="button" value="Alterar"   onclick="alterar()" id="btnAlterar" class="btn btn-warning">
+  <input type="button" value="Remover"   onclick="remover()"   id="btnRemover" class="btn btn-danger">
+</form>
 
     <!-- Tabela -->
     <table class="table table-striped">
@@ -65,3 +78,4 @@
     
 </body>
 </html>
+
