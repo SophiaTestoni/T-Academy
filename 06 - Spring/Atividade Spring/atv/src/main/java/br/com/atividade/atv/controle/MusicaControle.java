@@ -41,7 +41,7 @@ public class MusicaControle {
     }
 
     // DELETE DE MÚSICA
-    @DeleteMapping("/{id}")
+    @DeleteMapping("remover/{id}")
     public void remover(@PathVariable long id){
         acao.deleteById(id);
     }

@@ -98,28 +98,28 @@ function selecionar(id){
 function remover() {
     let id = parseInt(document.getElementById("id").value);
 
-    // requisição na API
-    fetch(`http://localhost:8080/artistas/${id}`, {method:"DELETE"})
+    // Requisição na API 
+    fetch(`http://localhost:8080/artistas/remover/${id}`, {method:"DELETE"})
     .then(() => {
 
-        //obter a posição do vetor referente ao produto que deverá ser removido
+        //obtendo a posição do vetor referente ao artista que será removido
         let posicaoVetor = vetor.findIndex(objLinha => {
             return objLinha.id == id
         });
 
-        // remover produto do vetor
+        // removendo produto do vetor
         vetor.splice(posicaoVetor, 1);
 
-        //atualizar tabela
+        //atualizando tabela
         listarArtistas();
 
-        // limpar formulário
+        // limpando formulário
         formularioPadrao();
     })
 
 }
 
-//ALTERAR
+//ALTERAR ARTISTA
 function alterar() {
     let id = parseInt(document.getElementById("id").value);
     let artista = document.getElementById("artista").value;
@@ -133,7 +133,7 @@ function alterar() {
             "artista": artista
         }
 
-        fetch("http://localhost:8080/artistas", {
+        fetch("http://localhost:8080/artistas/alterarArtista", {
             method: "PUT",
             headers: {
                 "accept":"application/json",
@@ -154,6 +154,17 @@ function alterar() {
         });
     }
 }
+
+function pesquisarArtista() {
+    fetch(`http://localhost:8080/artistas/pesquisa/${artista}`)
+    .then(retornoArtistas => retornoArtistas.json())
+    .then(retorno_convertido => {
+         // Preencher os inputs
+         document.getElementById("artista").value = retorno_convertido.artista;
+
+    })
+}
+
 
 // função para limpar os campos e modificar a visibilidade dos botões
 function formularioPadrao() {

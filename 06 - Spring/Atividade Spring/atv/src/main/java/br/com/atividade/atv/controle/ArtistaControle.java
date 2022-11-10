@@ -42,7 +42,7 @@ public class ArtistaControle {
     }
 
     // DELETE -- COM VALIDAÇÃO, NÃO SENDO POSSÍVEL EXCLUIR SE TIVER MÚSICA VINCULADA
-    @DeleteMapping("/{id}")
+    @DeleteMapping("remover/{id}")
     public void remover(@PathVariable long id){
         ArtistaModelo am = acao.findById(id);
         if(am.getMusicas().size() == 0){
@@ -53,7 +53,7 @@ public class ArtistaControle {
 }
 
     // ALTERA O NOME DO ARTISTA
-    @PutMapping("")
+    @PutMapping("/alterarArtista")
     public ArtistaModelo alterar(@RequestBody ArtistaModelo obj){
         return acao.save(obj);
     }
