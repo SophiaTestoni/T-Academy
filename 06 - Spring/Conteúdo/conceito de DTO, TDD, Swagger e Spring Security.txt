@@ -1,0 +1,59 @@
+DTO - Data Transfer Object
+
+1- Camada de segurança para não alterar informações sensíveis.
+Ex. 
+{
+"codigo":1,
+"nome": "Alice",
+"email":"alice.silva@gmail.com",
+"senha":"123",
+"tipo":"comum"
+}
+
+2- Retorno de dados - características que serão retornadas ou não.
+Ex.
+{
+"codigo":1,
+"nome": "Alice",
+"email":"alice.silva@gmail.com",
+"tipo":"comum"
+}
+
+--------------------------%%%-----------------------
+TDD - Testes
+-JUnit - dependência
+
+Cada equipe utiliza uma forma diferente de efetuar os testes.
+A maioria utiliza o JUnit e mais algumas coisas.
+
+
+--------------------------%%%-----------------------
+SWAGGERS:
+Foca em controladores (Controllers)
+
+http://localhost:8080/swagger-ui/index.html
+
+--------------------------%%%-----------------------
+SPRING SECURITY
+
+spring-boot-security - dependência
+- Por padrão da dependência agora ao acessar qualquer rota ele irá pedir um usuário e senha.
+- O user é padrão: user
+- A senha é gerada randomicamente toda vez que roda o servidor.
+Estará no terminal como: "Using generated security password:".
+
+- Projetos antes de 2022, poderá ser visto tutoriais aonde herdava (extends) WebSecurityConfigurerAdapter aonde possui @Override
+
+- Depois de 2022 já utiliza a nova versão do spring security aonde esse padrão não é utilizado.
+
+
+
+
+
+
+
+
+
+
+
+
