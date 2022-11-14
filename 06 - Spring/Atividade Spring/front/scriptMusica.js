@@ -179,7 +179,7 @@ function formularioPadrao() {
 }
 
 function pesquisarMusica(){
-    let musica = document.getElementById("musica").value;
+    let musica = document.getElementById("searchbar").value;
     fetch(`http://localhost:8080/musicas/pesquisa/${musica}`)
     .then(retornoMusicas => retornoMusicas.json())
     .then(musicas => vetor = musicas)
