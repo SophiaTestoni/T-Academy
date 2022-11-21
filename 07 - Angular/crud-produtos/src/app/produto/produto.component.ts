@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from'@angular/forms';
 import { Produto } from '../modelo/Produto';
+import { ProdutoService } from '../servicos/produto.service';
 
 @Component({
   selector: 'app-produto',
@@ -8,6 +9,9 @@ import { Produto } from '../modelo/Produto';
   styleUrls: ['./produto.component.css']
 })
 export class ProdutoComponent {
+
+  //Construtor para ter acesso a classe de serviço
+  constructor(private servico:ProdutoService){}
 
   //Vetor de produtos chamando a interface criada no modelo
   vetor:Produto[] = [];
@@ -19,10 +23,15 @@ export class ProdutoComponent {
     valor   : new FormControl()
   });
 
+  //Método de inicialização = executa após carregar todo o componente) - similar o window.onload
+  ngOnInit(){
+    this.selecionar();
+  }
+
   //função para retornar os valores contidos no formulário
   testarFormulario():void{
     console.log(this.formulario.value);
-  }
+  };
 
   //CADASTRAR um produto
   cadastrar():void{
@@ -34,19 +43,40 @@ export class ProdutoComponent {
    p.produto = this.formulario.value.produto;
    p.valor = this.formulario.value.valor;
 
-   //Cadastrar produto no vetor
-   this.vetor.push(p);
+   //Executar o serviço
+   this.servico.cadastrar(p)
+   .subscribe(retorno =>{
+  
+    //Cadastrar produto no vetor
+   this.vetor.push(retorno);
 
    //limpar os campos do formulário
    this.formulario.reset();
+   })
   }
 
   //REMOVER um produto
-  remover(posicao:number):void{
+  remover(id:number):void{
 
-      //Excluir produto através da posição do vetor
-      this.vetor.splice(posicao,1);
+    //Remover o produto do back-end
+    this.servico.remover(id)
+    .subscribe(() => {})
+      
+    //Posição do vetor que está determinado o ID
+    let pesquisaID = this.vetor.findIndex(obj => {return obj.id === id});
+
+    //Remover produto do vetor
+    this.vetor.splice(pesquisaID,1);
 
   }
 
+  //Obter todos os produtos que estão na API
+  selecionar():void{
+    this.servico.selecionar()
+    //pegar a info json e converter para um dado legível para o programa
+    .subscribe({
+      next: retorno => this.vetor = retorno,
+      error: () => alert("Falha ao listar")
+    });
+  }
 }

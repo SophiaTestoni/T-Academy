@@ -1,0 +1,19 @@
+{
+  "produtos": [
+    {
+      "produto": "Notebook Dell",
+      "valor": "1700",
+      "id": 1
+    },
+    {
+      "produto": "Notebook Acer Nitro",
+      "valor": "3500",
+      "id": 2
+    },
+    {
+      "produto": "Mcbook Pro",
+      "valor": 8900,
+      "id": 3
+    }
+  ]
+}

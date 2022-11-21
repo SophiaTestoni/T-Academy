@@ -1,0 +1,47 @@
+Angular mexe com typescript
+
+Componente = página ou parte do projeto. (Pode ser um formulário, tabela, um topo).
+
+-- App > app.component.html
+-- App > app.components.ts - Regra de negócio no export class AppComponent
+
+
+*******//////*******//////
+
+Agora o let só funciona dentro de functions
+
+Expressions: extrair valores de variáveis, utiliza-se p {{}}
+É possível també fazer cálculos numéricos
+ex. <h1>a soma de 5+5 é: {{5+5}}</h1>
+
+
+*******//////*******//////
+
+Diretivas:
+*ngIf
+[switch]
+*ngFor = para listas > index as i - comando nativo para listar numerado "mostra o id"
+
+*******//////*******//////
+
+== valida a informação
+=== valida a informação e tipo
+
+ex. 
+let numero1:string = "1";
+let numero2:number = 1;
+
+quando
+
+numero1 == numero2 é true
+pois são a mesma informação, o 1.
+
+numero1 === numero2 é false
+pois é a mesma informação mas não são do mesmo tipo
+um é string e outro é number.
+
+*******//////*******//////
+
+SPA ANGULAR = Single-Page Application
+
+
