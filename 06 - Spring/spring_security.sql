@@ -7,8 +7,8 @@ INSERT INTO tb_roles VALUES
 
 #Inserir os usuários
 INSERT INTO tb_users VALUES
-(null, "Sophia", "$2a$10$LjtqNLOzB.S8muVsNAZL1uhIZESmMKqSuSQm8hwwPFbC5JVK1YBkW"),
-(null, "Ronaldo", "$2a$10$LoSrRzADFMab59nZ5DjmvO60.LsN7zILWQm6l1OLFYGFj4sLKxjoa");
+(null, "$2a$10$LjtqNLOzB.S8muVsNAZL1uhIZESmMKqSuSQm8hwwPFbC5JVK1YBkW", "sophia"),
+(null, "$2a$10$LoSrRzADFMab59nZ5DjmvO60.LsN7zILWQm6l1OLFYGFj4sLKxjoa", "ronaldo");
 
 #Especificar usuário e o nível
 INSERT INTO tb_users_role VALUES
