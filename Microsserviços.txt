@@ -1,0 +1,21 @@
+Microsserviços com Spring Boot
+
+Alternativa/melhoria para poder criar o sistema quando uma regra de negócios é muito complexa.
+
+Microsserviços tem como objetivo separar uma aplicação em pequenas partes
+
+Ex. Data Store (SQL/NoSQL) < Container Orchestration (O microsservice) < API Gateway (facilitar localizar o microsserviço, a rota) < Clients (usuário).
+
+-- Projetos menores que se comunicam para um projeto maior no total.
+
+Sistema monolítico = se uma parte do sistema der erro, tudo para de funcionar.
+
+Microsserviço = Isola cada aplicação em um projeto, assim se algo ser errado, apenas aquele projeto irá falhar, não o sistema todo.
+
+Testes: Selenium < indicado para microsserviços
+
+DevOps: Sistema funcionar e se realmente está operacional (está fácil para um usuário utilizar?).
+
+
+
+

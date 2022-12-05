@@ -1,4 +1,20 @@
-Angular mexe com typescript
+Angular usa typescript
+
+- Para estudo o ideal é verificar as versões acima da 12 (atualmente está na 15).
+
+- Angularjs - v1 (Não utilizar para estudo)
+- Angular - v2
+
+São versões diferentes, v1 é em js e v2 é typescript
+
+O js em padrão as variáveis não são tipáveis, faz um let e deu, no typescript sim pois ele é orientado a objeto.
+
+*******//////*******//////
+
+Ler a documentação no angular.io/docs
+
+=======
+
 
 Componente = página ou parte do projeto. (Pode ser um formulário, tabela, um topo).
 
@@ -10,7 +26,7 @@ Componente = página ou parte do projeto. (Pode ser um formulário, tabela, um t
 
 Agora o let só funciona dentro de functions
 
-Expressions: extrair valores de variáveis, utiliza-se p {{}}
+Expressions: extrair valores de variáveis, utiliza-se {{}}
 É possível també fazer cálculos numéricos
 ex. <h1>a soma de 5+5 é: {{5+5}}</h1>
 
@@ -44,4 +60,13 @@ um é string e outro é number.
 
 SPA ANGULAR = Single-Page Application
 
+
+*******//////*******//////
+
+LINKS>
+https://www.typescriptlang.org/docs/handbook/basic-types.html
+
+https://material.angular.io/
+
+Ler a documentação no angular.io/docs
 

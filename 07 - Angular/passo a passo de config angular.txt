@@ -1,0 +1,21 @@
+
+Criar projetos:
+> ng new nome-projeto
+
+Criar componente
+
+ng g c nome-componente
+
+Executar Projetos
+
+* ng serve
+* ng s
+* ng serve --open (abre direto no navegador)
+* ng s --o (abre direto no navegador)
+
+
+
+
+
+
+

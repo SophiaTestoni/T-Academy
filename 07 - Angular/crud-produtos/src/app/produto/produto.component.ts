@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from'@angular/forms';
 import { Produto } from '../modelo/Produto';
 import { ProdutoService } from '../servicos/produto.service';
 
+
 @Component({
   selector: 'app-produto',
   templateUrl: './produto.component.html',
